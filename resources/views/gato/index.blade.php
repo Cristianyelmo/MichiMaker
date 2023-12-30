@@ -56,7 +56,7 @@ michi maker
 <a href="">Expresion</a>
       </div>
 <div class="">
-<a href="{{route('colors.create')}}">
+<a href="{{route('gatos.create')}}">
 <div class="flex justify-center mt-[30px]">
 <div class="relative">
 <button class="border border-solid border-4 border-black rounded-full w-[40px] h-[40px] contenedor-1">+</button>
@@ -67,26 +67,30 @@ michi maker
 </a>
 
       <div class="flex bg-blue w-70 h-full p-4 ">
-    @foreach($colors as $color)
+  @foreach($gatos as $gato) 
      
       <div class="relative m-[30px] ">
-<div class="border-black border-4 w-[200px] h-[200px] contenedor">
+<div class="border-black border-4 w-[200px] h-[200px] contenedor relative">
  
-  <img src="/img/{{$color->accesorio->image}}" alt="">
+  
+  <img src="/img/{{$gato->gafa->accesorio->image}}" alt="" class="w-[200px] h-[200px] absolute" id="imgGafas">
+                <img src="/img/{{$gato->color->accesorio->image}}" alt="" class="w-[200px] h-[200px]" id="imgColor">
 </div>
 <div class="bg-black  w-[200px] h-[200px] cuadrado-negro"></div>
      
 <!-- crud -->
 <div class="flex justify-center space-x-3 mt-[20px]">
-<a href="{{route('colors.edit',['color'=>$color])}}" class="border-black border-4 w-[30px] h-[30px]">E</a>
+<!-- <a href="{{route('gatos.create',['gato'=>$gatos])}}" class="border-black border-4 w-[30px] h-[30px]">E</a> -->
 
-<div class="border-black border-4 w-[30px] h-[30px]"></div>
+<div class="border-black border-4 w-[30px] h-[30px]">
+  <a href="{{route('gatos.edit',['gato'=>$gato])}}">E</a>
+</div>
 <div class="border-black border-4 w-[30px] h-[30px]"></div>
 </div>
 <!--  -->
 
 </div>
-      @endforeach
+     @endforeach 
 
 
 

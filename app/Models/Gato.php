@@ -28,5 +28,5 @@ class Gato extends Model
         return $this->belongsTo(User::class);
     }
 
-
+    protected $fillable = ['nombre','image','color_id','gafa_id','sombrero_id','expresion_id','user_id'];
 }
