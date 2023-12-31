@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GafaController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\GatoController;
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\logoutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +28,18 @@ Route::resources([
     'gatos'=> GatoController::class,
 ])
 ;
+
+Route::get('/login', [loginController::class,'index'])->name('login');
+Route::post('/login', [loginController::class,'login']);
+
+Route::get('/register', [RegisterController::class,'index'])->name('register');
+Route::post('/register', [RegisterController::class,'register']);
+
+Route::get('/logout', [logoutController::class,'logout'])->name('logout');
+Route::get('/', function () {
+    return view('template');
+});
+
 
 
 

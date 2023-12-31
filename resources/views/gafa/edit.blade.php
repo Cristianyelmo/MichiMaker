@@ -1,77 +1,9 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  @vite('resources/css/app.css')
- 
-</head>
-<body>
-<style>
-  .contenedor {
-      position: relative;
-      
-      background-color: white;
-      z-index: 1; /* Asegura que el contenido esté por encima del cuadrado negro */
-    }
+@extends('template')
+@section('title','editar gafas')
+@push('css')
 
-    .cuadrado-negro {
-      position: absolute;
-    top: 10px;
-    40px: ;
-    left: 20px;
-    
-    background-color: black;
-    z-index: 0;
-    }
-
-
-    .contenedor-2 {
-      position: relative;
-      
-      background-color: white;
-      z-index: 1; /* Asegura que el contenido esté por encima del cuadrado negro */
-    }
-
-    .cuadrado-negro-2 {
-      position: absolute;
-    top: 10px;
-    40px: ;
-    right: 6px;
-    background-color: black;
-    z-index: 0;
-    }
-
-
-
-
-      .contenedor-3 {
-      position: relative;
-      
-      background-color: white;
-      z-index: 1; /* Asegura que el contenido esté por encima del cuadrado negro */
-    }
-
-    .cuadrado-negro-3 {
-      position: absolute;
-    bottom: 5px;
-    40px: ;
-    right: 6px;
-    background-color: black;
-    z-index: 0;
-    }
-  </style>
-    <header class="border-4 border-black">
-michi maker
-    </header>
-    <main class="flex">
-      <div class=" w-1/4 h-screen border-4 border-black">
-<h1>  Accesorios</h1>
-<a href="">Lentes</a>
-<a href="{{route('gafas.index')}}">Gafas</a>
-<a href="{{route('colors.index')}}">Colors</a>
-<a href="">Expresion</a>
-      </div>
+@endpush
+@section('admin')
 <div class="">
   <form action="{{route('gafas.update',['gafa' => $gafas])}}" method="post" enctype='multipart/form-data'>
   @method('PATCH')
@@ -116,12 +48,10 @@ value="{{old('nombre',$gafas->accesorio->nombre)}}">
 
       </div>
 
-    </main>
+      @endsection
 
-
-
-    
-  <script>
+@push('js')
+<script>
     // Obtén el div y el input por sus ID
     const openFileInput = document.getElementById('openFileInput');
     const fileInput = document.getElementById('fileInput');
@@ -162,5 +92,11 @@ value="{{old('nombre',$gafas->accesorio->nombre)}}">
 
 
   </script>
-</body>
-</html>
+
+@endpush
+
+
+
+    
+  
+

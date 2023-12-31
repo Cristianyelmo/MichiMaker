@@ -7,6 +7,7 @@ use App\Models\Accesorio;
 use App\Models\Gafa;
 use App\Models\Gato;
 use App\Models\Color;
+use Illuminate\Support\Facades\Auth;
 class GatoController extends Controller
 {
     /**
@@ -15,8 +16,9 @@ class GatoController extends Controller
     public function index()
     {
         //
-        $gatos = Gato::with(['gafa.accesorio','color.accesorio'])->latest()
+        $gatos = Gato::with(['gafa.accesorio','color.accesorio','user'])->latest()
         ->get();
+        
         return view('gato.index',compact('gatos'));
     }
 
@@ -47,6 +49,10 @@ class GatoController extends Controller
            
             $gato= new Gato();
 
+            $user = Auth::user();
+            $userId = $user->id;
+
+
             $gato->fill([
                 'nombre'=>'alfredo',
                 'image'=>'alfredoxd.jpg',
@@ -54,7 +60,7 @@ class GatoController extends Controller
                 'gafa_id'=> $request->gafas_id,
                 'sombrero_id'=>1,
                 'expresion_id'=>1,
-                'user_id'=>2,
+                'user_id'=>$userId,
 
 
 
@@ -178,5 +184,17 @@ $gato->save();
     public function destroy(string $id)
     {
         //
+
+
+        $gato = Gato::find($id);
+
+        // Verificar si el registro existe antes de intentar eliminarlo
+        if ($gato) {
+            // Eliminar el registro
+            $gato->delete();
+    
+            // Redirigir con un mensaje de éxito
+            return redirect()->route('gatos.index')->with('success', 'Eliminado exitosamente');
+        }
     }
 }

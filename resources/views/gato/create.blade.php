@@ -1,72 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-     @vite('resources/css/app.css') 
+@extends('template')
+@section('title','crea tus michis')
+@push('css')
 
-    <style>
-        .contenedor {
-            position: relative;
-            background-color: white;
-            z-index: 1; /* Asegura que el contenido esté por encima del cuadrado negro */
-        }
-
-        .cuadrado-negro {
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            background-color: black;
-            z-index: 0;
-        }
-
-        .contenedor-2 {
-            position: relative;
-            background-color: white;
-            z-index: 1; /* Asegura que el contenido esté por encima del cuadrado negro */
-        }
-
-        .cuadrado-negro-2 {
-            position: absolute;
-            top: 10px;
-            right: 6px;
-            background-color: black;
-            z-index: 0;
-        }
-
-        .contenedor-3 {
-            position: relative;
-            background-color: white;
-            z-index: 1; /* Asegura que el contenido esté por encima del cuadrado negro */
-        }
-
-        .cuadrado-negro-3 {
-            position: absolute;
-            bottom: 5px;
-            right: 6px;
-            background-color: black;
-            z-index: 0;
-        }
-    </style>
-</head>
-<body>
-
-<header class="border-4 border-black">
-    michi maker
-</header>
-
-<main class="flex">
-    <div class="w-1/4 h-screen border-4 border-black">
-        <h1>Accesorios</h1>
-        <a href="">Lentes</a>
-        <a href="{{route('colors.index')}}">Colors</a>
-        <a href="{{route('gafas.index')}}">Gafas</a>
-        <a href="">Expresion</a>
-    </div>
-
-    <div>
+@endpush
+@section('user')
     <div class="border-4 border-black w-[300px] h-[300px] relative" id="miDiv">
                 <img src="" alt="" class="w-[300px] h-[300px] absolute" id="imgGafas">
                 <img src="" alt="" class="w-[300px] h-[300px]" id="imgColor">
@@ -95,13 +32,9 @@
 
        
     </div>
-</main>
-<script>
-   
-   
+    @endsection
 
-
-  </script>
+@push('js')
 <script>
 
   /* gjjf*/
@@ -150,5 +83,7 @@ var infoPersonalizada = opcionSeleccionada.getAttribute("data-info-2");
  
 </script>
 
-</body>
-</html>
+@endpush
+
+
+

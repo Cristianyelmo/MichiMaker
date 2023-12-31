@@ -1,60 +1,11 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  @vite('resources/css/app.css')
- 
-</head>
-<body>
-<style>
-  .contenedor {
-      position: relative;
-      
-      background-color: white;
-      z-index: 1; /* Asegura que el contenido esté por encima del cuadrado negro */
-    }
+@extends('template')
+@section('title','- tu michis')
+@push('css')
 
-    .cuadrado-negro {
-      position: absolute;
-    top: 10px;
-    40px: ;
-    left: 20px;
-    
-    background-color: black;
-    z-index: 0;
-    }
-
-
-    .contenedor-1 {
-      position: relative;
-      
-      background-color: white;
-      z-index: 1; /* Asegura que el contenido esté por encima del cuadrado negro */
-    }
-
-    .cuadrado-negro-1 {
-      position: absolute;
-    top: 0px;
-    40px: ;
-    left: 6px;
-    
-    background-color: black;
-    z-index: 0;
-    }
-  </style>
-    <header class="border-4 border-black">
-michi maker
-    </header>
-    <main class="flex">
-      <div class=" w-1/4 h-screen border-4 border-black">
-<h1>  Accesorios</h1>
-<a href="">Lentes</a>
-<a href="{{route('gafas.index')}}">Gafas</a>
-<a href="{{route('colors.index')}}">Colors</a>
-
-<a href="">Expresion</a>
-      </div>
+@endpush
+@section('user')
+  
+   
 <div class="">
 <a href="{{route('gatos.create')}}">
 <div class="flex justify-center mt-[30px]">
@@ -68,7 +19,7 @@ michi maker
 
       <div class="flex bg-blue w-70 h-full p-4 ">
   @foreach($gatos as $gato) 
-     
+     @if($gato->user->id == auth()->user()->id)
       <div class="relative m-[30px] ">
 <div class="border-black border-4 w-[200px] h-[200px] contenedor relative">
  
@@ -85,11 +36,18 @@ michi maker
 <div class="border-black border-4 w-[30px] h-[30px]">
   <a href="{{route('gatos.edit',['gato'=>$gato])}}">E</a>
 </div>
-<div class="border-black border-4 w-[30px] h-[30px]"></div>
+<div class="border-black border-4 w-[30px] h-[30px]">
+<form action="{{route('gatos.destroy',['gato'=>$gato->id])}}" method='post'>
+                        @method('DELETE')
+                        @csrf
+                    <button type="submit" class="btn btn-primary">B</button>
+                    </form>
+</div>
 </div>
 <!--  -->
 
 </div>
+@endif
      @endforeach 
 
 
@@ -100,7 +58,10 @@ michi maker
       
 
       </div>
+@endsection
 
-    </main>
-</body>
-</html>
+@push('js')
+
+
+@endpush
+  
