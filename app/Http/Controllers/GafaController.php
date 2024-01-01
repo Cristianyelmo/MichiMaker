@@ -7,6 +7,8 @@ use App\Models\Accesorio;
 use App\Models\Gafa;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreGafaRequest;
+use App\Http\Requests\UpdateGafaRequest;
 class GafaController extends Controller
 {
     /**
@@ -41,7 +43,7 @@ class GafaController extends Controller
      * Store a newly created resource in storage.
      * 
      */
-    public function store(Request $request)
+    public function store(StoreGafaRequest $request)
     {
         //
         /* dd($request);
@@ -108,7 +110,7 @@ class GafaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request,Gafa $gafa)
+    public function update(UpdateGafaRequest $request,Gafa $gafa)
     {
         //
    

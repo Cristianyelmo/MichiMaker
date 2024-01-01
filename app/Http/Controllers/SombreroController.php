@@ -1,15 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use App\Models\Accesorio;
-use App\Models\Color;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\UpdateColorRequest;
-use App\Http\Requests\StoreColorRequest;
 use Illuminate\Support\Facades\Storage;
-class ColorController extends Controller
+use App\Models\Accesorio;
+use Illuminate\Http\Request;
+use App\Models\Sombrero;
+use App\Http\Requests\StoreSombreroRequest;
+use App\Http\Requests\UpdateSombreroRequest;
+class SombreroController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,8 @@ class ColorController extends Controller
     public function index()
     {
         //
-        $colors= Color::with('accesorio')->get();
-        return view('color.index',['colors'=> $colors]);
+        $sombreros= Sombrero::with('accesorio')->get();
+        return view('sombrero.index',['sombreros'=> $sombreros]);
     }
 
     /**
@@ -27,28 +26,15 @@ class ColorController extends Controller
     public function create()
     {
         //
-        return view('color.create');
+        return view('sombrero.create');
     }
-    
-    
-
-
-
-
-
-
-
 
     /**
      * Store a newly created resource in storage.
-     * 
      */
-    public function store(StoreColorRequest $request)
+    public function store(StoreSombreroRequest $request)
     {
         //
-        /* dd($request);
-        */
-      
         try{
             DB::beginTransaction();
            
@@ -72,7 +58,7 @@ class ColorController extends Controller
             $accesorio=Accesorio::create([
                 'nombre'=> $request->nombre,
                 'image'=> $name]);
-            $accesorio->color()->create([
+            $accesorio->sombrero()->create([
 'accesorio_id' => $accesorio->id
 
             ]); 
@@ -82,8 +68,9 @@ class ColorController extends Controller
                         }
 
 
- return redirect()->route('colors.index')
-->with('sucess','color registrada'); 
+ return redirect()->route('sombreros.index')
+->with('sucess','sombrero registrada'); 
+        
         
     }
 
@@ -98,32 +85,27 @@ class ColorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Color $Color)
+    public function edit(Sombrero $sombrero)
     {
         //
-       
-        return view('color.edit',['colors' => $Color]);
-
-
+        return view('sombrero.edit',['sombreros' => $sombrero]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateColorRequest $request,Color $color)
+    public function update(UpdateSombreroRequest $request, Sombrero $sombrero)
     {
         //
-      
-      
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')){
             
             $imagen = $request->image;
                 $nombre = $request->nombre;
                 $name = $nombre .'.' . $imagen->getClientOriginalExtension(); 
 
-           if(Storage::disk('public')->exists('img/' .$color->accesorio->image)){
+           if(Storage::disk('public')->exists('img/' .$gafa->accesorio->image)){
            
-               Storage::disk('public')->delete('img/' .$color->accesorio->image);
+               Storage::disk('public')->delete('img/' .$gafa->accesorio->image);
                 
            }
 
@@ -134,16 +116,15 @@ class ColorController extends Controller
 
 
            }else{
-           $name = $color->accesorio->image;
+           $name = $sombrero->accesorio->image;
            }
 
-        Accesorio::where('id',$color->accesorio->id)->
+        Accesorio::where('id',$sombrero->accesorio->id)->
         update([
             'nombre'=> $request->nombre,
             'image'=> $name]);
 
-            return redirect()->route('colors.index')->with('success','Marca Editada'); 
-
+            return redirect()->route('sombreros.index')->with('success','Marca Editada'); 
     }
 
     /**

@@ -1,11 +1,11 @@
 @extends('template')
-@section('title','- tu color')
+@section('title','tu michis')
 @push('css')
 
 @endpush
 @section('admin')
 <div class="">
-  <form action="{{ route('colors.store') }}" method="post" enctype='multipart/form-data'>
+  <form action="{{ route('sombreros.store') }}" method="post" enctype='multipart/form-data'>
   @csrf
 <div class="flex flex-col items-center mt-[30px]">
 
@@ -26,18 +26,17 @@
 </div>
 
 </label>
-
 @error('image')
 <small class='text-danger'>{{'*'.$message}}</small>
 
 @enderror
 
 
+
   <div class="ml-[30px] relative">
 <input type="text" name="nombre" class="outline-none border border-4 border-black p-2 w-[460px] contenedor-2">
 <div class=" w-[460px] bg-black h-[50px] cuadrado-negro-2"></div>
 </div>
-      
 @error('nombre')
 <small class='text-danger'>{{'*'.$message}}</small>
 
@@ -99,7 +98,3 @@
   </script>
 
 @endpush
-
-
-
-    

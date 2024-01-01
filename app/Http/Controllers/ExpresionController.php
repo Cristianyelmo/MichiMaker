@@ -1,15 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use App\Models\Accesorio;
-use App\Models\Color;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\UpdateColorRequest;
-use App\Http\Requests\StoreColorRequest;
 use Illuminate\Support\Facades\Storage;
-class ColorController extends Controller
+use App\Models\Accesorio;
+use Illuminate\Http\Request;
+use App\Models\Expresion;
+use App\Http\Requests\StoreExpresionRequest;
+use App\Http\Requests\UpdateExpresionRequest;
+class ExpresionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,8 @@ class ColorController extends Controller
     public function index()
     {
         //
-        $colors= Color::with('accesorio')->get();
-        return view('color.index',['colors'=> $colors]);
+        $expresions= Expresion::with('accesorio')->get();
+        return view('expresion.index',['expresions'=> $expresions]);
     }
 
     /**
@@ -27,28 +26,15 @@ class ColorController extends Controller
     public function create()
     {
         //
-        return view('color.create');
+        return view('expresion.create');
     }
-    
-    
-
-
-
-
-
-
-
 
     /**
      * Store a newly created resource in storage.
-     * 
      */
-    public function store(StoreColorRequest $request)
+    public function store(StoreExpresionRequest $request)
     {
         //
-        /* dd($request);
-        */
-      
         try{
             DB::beginTransaction();
            
@@ -72,7 +58,7 @@ class ColorController extends Controller
             $accesorio=Accesorio::create([
                 'nombre'=> $request->nombre,
                 'image'=> $name]);
-            $accesorio->color()->create([
+            $accesorio->expresion()->create([
 'accesorio_id' => $accesorio->id
 
             ]); 
@@ -82,8 +68,9 @@ class ColorController extends Controller
                         }
 
 
- return redirect()->route('colors.index')
-->with('sucess','color registrada'); 
+ return redirect()->route('expresions.index')
+->with('sucess','expresion registrada'); 
+        
         
     }
 
@@ -98,32 +85,27 @@ class ColorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Color $Color)
+    public function edit(Expresion $expresion)
     {
         //
-       
-        return view('color.edit',['colors' => $Color]);
-
-
+        return view('expresion.edit',['expresions' => $expresion]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateColorRequest $request,Color $color)
+    public function update(UpdateExpresionRequest $request, Expresion $expresion)
     {
         //
-      
-      
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')){
             
             $imagen = $request->image;
                 $nombre = $request->nombre;
                 $name = $nombre .'.' . $imagen->getClientOriginalExtension(); 
 
-           if(Storage::disk('public')->exists('img/' .$color->accesorio->image)){
+           if(Storage::disk('public')->exists('img/' .$gafa->accesorio->image)){
            
-               Storage::disk('public')->delete('img/' .$color->accesorio->image);
+               Storage::disk('public')->delete('img/' .$gafa->accesorio->image);
                 
            }
 
@@ -134,16 +116,15 @@ class ColorController extends Controller
 
 
            }else{
-           $name = $color->accesorio->image;
+           $name = $expresion->accesorio->image;
            }
 
-        Accesorio::where('id',$color->accesorio->id)->
+        Accesorio::where('id',$expresion->accesorio->id)->
         update([
             'nombre'=> $request->nombre,
             'image'=> $name]);
 
-            return redirect()->route('colors.index')->with('success','Marca Editada'); 
-
+            return redirect()->route('expresions.index')->with('success','Marca Editada'); 
     }
 
     /**

@@ -28,7 +28,10 @@
 
 </label>
 
+@error('image')
+<small class='text-danger'>{{'*'.$message}}</small>
 
+@enderror
 
 
   <div class="ml-[30px] relative">
@@ -36,7 +39,10 @@
 value="{{old('nombre',$gafas->accesorio->nombre)}}">
 <div class=" w-[460px] bg-black h-[50px] cuadrado-negro-2"></div>
 </div>
-      
+@error('nombre')
+<small class='text-danger'>{{'*'.$message}}</small>
+
+@enderror      
  
 <div class="relative mt-[30px]">
 <button type="submit" class="w-[90px]  h-[60px]   border border-black border-4 mt-[40px] rounded-full contenedor-3">Editar</button>

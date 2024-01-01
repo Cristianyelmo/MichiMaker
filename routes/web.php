@@ -7,6 +7,8 @@ use App\Http\Controllers\GatoController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\logoutController;
+use App\Http\Controllers\ExpresionController;
+use App\Http\Controllers\SombreroController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,12 +24,31 @@ use App\Http\Controllers\logoutController;
 }); 
  */
 
-Route::resources([
+/* Route::resources([
     'gafas'=> GafaController::class,
     'colors'=> ColorController::class,
     'gatos'=> GatoController::class,
 ])
-;
+; */
+Route::middleware('checkRole:1')->group(function () {
+    Route::resources([
+        'gafas'=> GafaController::class,
+        'colors'=> ColorController::class,
+        'expresions'=> ExpresionController::class,
+        'sombreros'=> SombreroController::class,
+        
+    ]);
+
+});
+
+
+
+Route::middleware('checkRole:2')->group(function () {
+    Route::resources([
+        
+        'gatos'=> GatoController::class,
+    ]);
+});
 
 Route::get('/login', [loginController::class,'index'])->name('login');
 Route::post('/login', [loginController::class,'login']);

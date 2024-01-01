@@ -7,6 +7,8 @@ use App\Models\Accesorio;
 use App\Models\Gafa;
 use App\Models\Gato;
 use App\Models\Color;
+use App\Http\Requests\StoreGatoRequest;
+use App\Http\Requests\UpdateGatoRequest;
 use Illuminate\Support\Facades\Auth;
 class GatoController extends Controller
 {
@@ -41,7 +43,7 @@ class GatoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreGatoRequest $request)
     {
       
         try{
@@ -54,7 +56,7 @@ class GatoController extends Controller
 
 
             $gato->fill([
-                'nombre'=>'alfredo',
+                'nombre'=>$request->name,
                 'image'=>'alfredoxd.jpg',
                 'color_id'=> $request->color_id,
                 'gafa_id'=> $request->gafas_id,
@@ -110,7 +112,8 @@ $gato->save();
      */
     public function edit(Gato $gato)
     {
-        //
+      
+        //dd()
         $gafas=Gafa::join('accesorios as c','gafas.accesorio_id','=','c.id')
         ->select('gafas.id as id','c.nombre as nombre')
         ->get();
@@ -125,22 +128,23 @@ $gato->save();
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Gato $gato)
+    public function update(UpdateGatoRequest $request, Gato $gato)
     {
         //
         try{
             DB::beginTransaction();
            
-            
+            $user = Auth::user();
+            $userId = $user->id;
 
             $gato->fill([
-                'nombre'=>'alfredo',
+                'nombre'=>$request->name,
                 'image'=>'alfredoxd.jpg',
                 'color_id'=> $request->color_id,
                 'gafa_id'=> $request->gafas_id,
                 'sombrero_id'=>1,
                 'expresion_id'=>1,
-                'user_id'=>2,
+                'user_id'=>$user->id,
 
 
 

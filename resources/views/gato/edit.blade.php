@@ -38,7 +38,11 @@
             
 
           <!--   <input type="file" name="image" id="imageInput" accept="image/*" class="hidden"> -->
+<input type="text" name="name"  value="{{old('name',$gato->nombre)}}">
+@error('name')
+<small class='text-danger'>{{'*'.$message}}</small>
 
+@enderror
             <select name="color_id" id="presentacione_id" class="form-control">
                 @foreach ($colors as $item)
 
@@ -51,7 +55,10 @@
                     @endif
                 @endforeach
             </select>
-           
+            @error('color_id')
+<small class='text-danger'>{{'*'.$message}}</small>
+
+@enderror
             <select name="gafas_id" id="gafas_id" class="form-control">
             @foreach ($gafas as $item)
             @if($gato->gafa_id == $item->id)
@@ -62,7 +69,10 @@
                     @endif
                     @endforeach
             </select>
+            @error('gafas_id')
+<small class='text-danger'>{{'*'.$message}}</small>
 
+@enderror
             <button type="submit">Capturar Imagen</button>
         </form>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\loginRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 class loginController extends Controller
@@ -33,7 +34,7 @@ class loginController extends Controller
          
       }
   
-      public function login(Request $request)                                                   {
+      public function login(loginRequest $request)                                                   {
     
   if(!Auth::validate($request->only('email','password'))){
   

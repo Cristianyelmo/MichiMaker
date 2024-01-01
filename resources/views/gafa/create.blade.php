@@ -26,7 +26,10 @@
 </div>
 
 </label>
+@error('image')
+<small class='text-danger'>{{'*'.$message}}</small>
 
+@enderror
 
 
 
@@ -34,7 +37,10 @@
 <input type="text" name="nombre" class="outline-none border border-4 border-black p-2 w-[460px] contenedor-2">
 <div class=" w-[460px] bg-black h-[50px] cuadrado-negro-2"></div>
 </div>
-      
+@error('nombre')
+<small class='text-danger'>{{'*'.$message}}</small>
+
+@enderror
  
 <div class="relative mt-[30px]">
 <button type="submit" class="w-[90px]  h-[60px]   border border-black border-4 mt-[40px] rounded-full contenedor-3">Crear</button>

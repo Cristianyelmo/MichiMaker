@@ -11,22 +11,32 @@
         <form  action="{{ route('gatos.store') }}" method="post" enctype="multipart/form-data">
             @csrf
 
-            
+            <input type="text" name="name">
+            @error('name')
+<small class='text-danger'>{{'*'.$message}}</small>
 
+@enderror
           <!--   <input type="file" name="image" id="imageInput" accept="image/*" class="hidden"> -->
 
-            <select name="color_id" id="presentacione_id" class="form-control">
+            <select name="color_id" id="presentacione_id" class="form-control" required>
+            <option value="" disabled selected hidden>Selecciona</option>
                 @foreach ($colors as $item)
                     <option value="{{$item->id}}"  data-info="{{$item->nombre}}" {{ old('color_id')== $item->id ? 'selected': '' }}>{{$item->nombre}}</option>
                 @endforeach
             </select>
+            @error('gafas_id')
+<small class='text-danger'>{{'*'.$message}}</small>
 
+@enderror
             <select name="gafas_id" id="gafas_id" class="form-control">
                 @foreach ($gafas as $item)
                     <option value="{{$item->id}}" data-info-2="{{$item->nombre}}" {{ old('color_id')== $item->id ? 'selected': '' }}>{{$item->nombre}}</option>
                 @endforeach
             </select>
+            @error('olor_id')
+<small class='text-danger'>{{'*'.$message}}</small>
 
+@enderror
             <button type="submit">Capturar Imagen</button>
         </form>
 

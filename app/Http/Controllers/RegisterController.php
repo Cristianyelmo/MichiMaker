@@ -5,9 +5,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\registerRequest;
 class RegisterController extends Controller
 {
-    public function register(Request $request){
+    public function register(registerRequest $request){
         $user= new User();
         
          

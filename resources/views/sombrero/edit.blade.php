@@ -1,12 +1,13 @@
 @extends('template')
-@section('title','- tu color')
+@section('title','editar sombreros')
 @push('css')
 
 @endpush
 @section('admin')
 <div class="">
-  <form action="{{ route('colors.store') }}" method="post" enctype='multipart/form-data'>
-  @csrf
+  <form action="{{route('sombreros.update',['sombrero' => $sombreros])}}" method="post" enctype='multipart/form-data'>
+  @method('PATCH')
+    @csrf
 <div class="flex flex-col items-center mt-[30px]">
 
 
@@ -15,7 +16,7 @@
   <input type="file" name="image" class="hidden" id="fileInput">
 <div class="relative m-[30px] cursor-pointer " id="openFileInput">
 <div class="border-black border-4 w-[200px] h-[200px] contenedor">
-<img src="/img/photo.jpg" id="uploadedImage" alt="">
+<img src="/img/{{$sombreros->accesorio->image}}" id="uploadedImage" alt="">
 </div>
 <div class="bg-black  w-[200px] h-[200px] cuadrado-negro"></div>
      
@@ -34,17 +35,17 @@
 
 
   <div class="ml-[30px] relative">
-<input type="text" name="nombre" class="outline-none border border-4 border-black p-2 w-[460px] contenedor-2">
+<input type="text" name="nombre" class="outline-none border border-4 border-black p-2 w-[460px] contenedor-2"
+value="{{old('nombre',$sombreros->accesorio->nombre)}}">
 <div class=" w-[460px] bg-black h-[50px] cuadrado-negro-2"></div>
 </div>
-      
 @error('nombre')
 <small class='text-danger'>{{'*'.$message}}</small>
 
-@enderror
+@enderror      
  
 <div class="relative mt-[30px]">
-<button type="submit" class="w-[90px]  h-[60px]   border border-black border-4 mt-[40px] rounded-full contenedor-3">Crear</button>
+<button type="submit" class="w-[90px]  h-[60px]   border border-black border-4 mt-[40px] rounded-full contenedor-3">Editar</button>
 <div class="w-[90px]  h-[60px]   bg-black  rounded-full cuadrado-negro-3"></div>
 </div> 
 
@@ -99,7 +100,3 @@
   </script>
 
 @endpush
-
-
-
-    
