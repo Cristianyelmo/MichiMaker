@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="Sistema de ventas de abarrotes" />
         <meta name="author" content="SakCode" />
-        @vite('resources/css/app.css')
+        <script defer src="https://cdn.tailwindcss.com"></script>
 
         <title>Dashboard - SB Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />

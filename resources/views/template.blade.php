@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+  
 
 
  <title>Michiker @yield('title')</title>
@@ -135,6 +135,10 @@ body {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
+
+    #onload-page {
+            display: none;
+        }
   </style>
    
 
@@ -142,16 +146,25 @@ body {
 
 
 
-   <x-navigation-header/>
+   
    <div id="overlay" class="overlay">
        <!--  <div class="loader"></div> -->
        <p class="text-white">Cargando...</p>
     </div>
+    <div id="onload-page">
+    <x-navigation-header/>
    <main class="flex flex-col items-center">
 
 
    <x-navigation-menu/>
    @if(auth()->check())
+
+   @if(request()->is('/'))
+   <x-index-inicio :gatos="$gatos"/>
+@endif
+ 
+
+    
     @if(auth()->user()->rol_id == 1)
         @yield('admin')
         
@@ -165,45 +178,7 @@ body {
 @else
 
 
-<img src="/Ellipse.png" class="absolute w-[300px] h-[300px]" alt="">
-
-@foreach($gatos as $gato) 
-    
-      <div class="relative m-[30px]  ">
-<div class="border-black border-4 w-[200px] h-[200px] contenedor relative">
- 
-<img src="/img/{{$gato->sombrero->accesorio->image}}" alt="" class="z-30 w-[200px] h-[200px] absolute" id="imgGafas">
-  <img src="/img/{{$gato->gafa->accesorio->image}}" alt="" class="z-20 w-[200px] h-[200px] absolute" id="imgGafas">
-  <img src="/img/{{$gato->camiseta->accesorio->image}}" alt="" class="z-10 w-[200px] h-[200px] absolute" id="imgGafas">
-  <img src="/img/{{$gato->expresion->accesorio->image}}" alt="" class="z-10 w-[200px] h-[200px] absolute" id="imgGafas">
-                <img src="/img/{{$gato->color->accesorio->image}}" alt="" class="w-[200px] h-[200px]" id="imgColor">
-                   
-</div>
-<div class="bg-black  w-[200px] h-[200px] cuadrado-negro"></div>
-
-<!-- crud -->
-<div class="flex justify-center space-x-3 mt-[20px]">
-<!-- <a href="{{route('gatos.create',['gato'=>$gatos])}}" class="border-black border-4 w-[30px] h-[30px]">E</a> -->
-<div class="flex flex-col items-center">
-<p>{{$gato->nombre}}</p>
-<div class="flex space-x-4"> 
-  <div class="relative">
-  <div class="bg-white mt-[4px] rounded-full w-[20px] h-[20px] z-2 border-black border-5"></div> 
-  
-  </div>
-<p>{{$gato->user->name}}</p>
-</div>
-</div>
-</div>
-</div>
-<!--  -->
-
-</div>
-
-     @endforeach 
-    
-     
-
+<x-index-inicio :gatos="$gatos"/>
 
 
 @endif
@@ -213,7 +188,7 @@ body {
 
 
     </main>
-
+    </div>
     @stack('js')
    <!--  <script>
  window.addEventListener("load", function () {
@@ -221,7 +196,6 @@ body {
    
 }); 
   </script> -->
-  <script src="https://cdn.tailwindcss.com"></script>
   <script>
         // Muestra el overlay al iniciar la carga de la página
         document.getElementById('overlay').style.display = 'flex';
@@ -229,8 +203,15 @@ body {
         // Oculta el overlay cuando la página haya terminado de cargar
         window.onload = function() {
             document.getElementById('overlay').style.display = 'none';
+            document.getElementById('onload-page').style.display = 'block';
+
+
+
         };
     </script>
+  <script  src="https://cdn.tailwindcss.com"></script>
+ 
+ 
 </body>
 
 
