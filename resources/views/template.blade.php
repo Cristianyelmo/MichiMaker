@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
-  @vite('resources/css/app.css')
+ <!--  @vite('resources/css/app.css') -->
+
  <title>Michiker @yield('title')</title>
  
 
@@ -220,6 +221,7 @@ body {
    
 }); 
   </script> -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
         // Muestra el overlay al iniciar la carga de la página
         document.getElementById('overlay').style.display = 'flex';
