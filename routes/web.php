@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GafaController;
+use App\Http\Controllers\CamisetaController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\GatoController;
 use App\Http\Controllers\loginController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\logoutController;
 use App\Http\Controllers\ExpresionController;
 use App\Http\Controllers\SombreroController;
+use App\Http\Controllers\indexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +38,7 @@ Route::middleware('checkRole:1')->group(function () {
         'colors'=> ColorController::class,
         'expresions'=> ExpresionController::class,
         'sombreros'=> SombreroController::class,
+        'camisetas'=> CamisetaController::class,
         
     ]);
 
@@ -57,9 +60,12 @@ Route::get('/register', [RegisterController::class,'index'])->name('register');
 Route::post('/register', [RegisterController::class,'register']);
 
 Route::get('/logout', [logoutController::class,'logout'])->name('logout');
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('template');
-});
+}); */
+
+
+Route::get('/', [indexController::class,'index'])->name('template');
 
 
 

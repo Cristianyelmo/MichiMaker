@@ -15,7 +15,7 @@
 </div>
 </a>
 
-      <div class="flex bg-blue w-70 h-full p-4 ">
+      <div class="flex bg-blue  flex-col items-center w-70 h-full p-4 ">
     @foreach($expresions as $expresion)
      
       <div class="relative m-[30px] ">

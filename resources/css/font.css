@@ -1,0 +1,12 @@
+
+
+@font-face {
+    font-family: 'MiFuente';
+    src: url('../fonts/8-BITWONDER.TTF') format('truetype');
+    /* Agrega otros formatos si es necesario (woff, woff2, etc.) */
+}
+
+body {
+    font-family: 'MiFuente', sans-serif;
+    /* Otros estilos para el cuerpo del documento */
+}

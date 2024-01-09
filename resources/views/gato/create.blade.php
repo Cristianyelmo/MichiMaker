@@ -1,12 +1,19 @@
 @extends('template')
 @section('title','crea tus michis')
 @push('css')
-
+@if(old('data-info-2'))
+    {{ dd(old('data-info-2')) }}
+@endif
 @endpush
 @section('user')
     <div class="border-4 border-black w-[300px] h-[300px] relative" id="miDiv">
-                <img src="" alt="" class="w-[300px] h-[300px] absolute" id="imgGafas">
-                <img src="" alt="" class="w-[300px] h-[300px]" id="imgColor">
+       
+                <img src="/img/sin-eso.png" alt="" class="z-30 w-[300px] h-[300px] absolute" id="imgSombrero">
+     <img src="/img/sin-eso.png" alt="" class="z-20 w-[300px] h-[300px] absolute" id="imgGafas"> 
+           
+                <img src="/img/sin-eso.png" alt="" class="z-10 w-[300px] h-[300px] absolute" id="imgExpresion">
+                <img src="/img/sin-eso.png" alt="" class="z-10 w-[300px] h-[300px] absolute" id="imgCamiseta">
+                <img src="/img/sin-eso.png" alt="" class="w-[300px] h-[300px]" id="imgColor">
             </div>
         <form  action="{{ route('gatos.store') }}" method="post" enctype="multipart/form-data">
             @csrf
@@ -18,25 +25,56 @@
 @enderror
           <!--   <input type="file" name="image" id="imageInput" accept="image/*" class="hidden"> -->
 
-            <select name="color_id" id="presentacione_id" class="form-control" required>
+            <select name="color_id" id="presentacione_id" class="form-control"required>
             <option value="" disabled selected hidden>Selecciona</option>
                 @foreach ($colors as $item)
-                    <option value="{{$item->id}}"  data-info="{{$item->nombre}}" {{ old('color_id')== $item->id ? 'selected': '' }}>{{$item->nombre}}</option>
+                    <option value="{{$item->id}}"  data-info="{{$item->nombre}}"  >{{$item->nombre}}</option>
                 @endforeach
             </select>
-            @error('gafas_id')
+            @error('color_id')
 <small class='text-danger'>{{'*'.$message}}</small>
 
 @enderror
             <select name="gafas_id" id="gafas_id" class="form-control">
+            <option value="" disabled selected hidden>Selecciona</option>
                 @foreach ($gafas as $item)
-                    <option value="{{$item->id}}" data-info-2="{{$item->nombre}}" {{ old('color_id')== $item->id ? 'selected': '' }}>{{$item->nombre}}</option>
+                    <option value="{{$item->id}}" data-info-2="{{$item->nombre}}" >{{$item->nombre}}</option>
                 @endforeach
             </select>
-            @error('olor_id')
+      
+
+
+
+
+<select name="sombrero_id" id="sombreros_id" class="form-control" >
+            <option value="" disabled selected hidden>Selecciona</option>
+                @foreach ($sombreros as $item)
+                    <option value="{{$item->id}}"  data-info-3="{{$item->nombre}}" >{{$item->nombre}}</option>
+                @endforeach
+            </select>
+
+            <select name="camiseta_id" id="camisetas_id" class="form-control" >
+            <option value="" disabled selected hidden>Selecciona</option>
+                @foreach ($camisetas as $item)
+                
+                    <option value="{{$item->id}}"  data-info-5="{{$item->nombre}}" >{{$item->nombre}}</option>
+                @endforeach
+            </select>
+       
+
+
+<select name="expresion_id" id="expresions_id" class="form-control" required>
+            <option value="" disabled selected hidden>Selecciona</option>
+                @foreach ($expresions as $item)
+                    <option value="{{$item->id}}"  data-info-4="{{$item->nombre}}" >{{$item->nombre}}</option>
+                @endforeach
+            </select>
+            @error('expresion_id')
 <small class='text-danger'>{{'*'.$message}}</small>
 
 @enderror
+
+
             <button type="submit">Capturar Imagen</button>
         </form>
 
@@ -45,52 +83,10 @@
     @endsection
 
 @push('js')
-<script>
+<script src="/js/imagen-select.js">
 
   /* gjjf*/
 
-  var nombreImagen = document.getElementById('presentacione_id');
-   var imgColor = document.getElementById('imgColor');
-
-   nombreImagen.addEventListener('change', function() {
-      // Obtener el valor seleccionado del elemento select
-      /* var nombreImagenxd = nombreImagen.value;
- */
-
-
-      var opcionSeleccionada = nombreImagen.options[nombreImagen.selectedIndex];
-
-// Obtén el valor y la información personalizada
-
-var infoPersonalizada = opcionSeleccionada.getAttribute("data-info");
-
-
-
-
-
-
-
-
-     imgColor.src= `/img/${infoPersonalizada}.png`
-    });
-
-
-    var nombreImagen2 = document.getElementById('gafas_id');
-   var imgGafas = document.getElementById('imgGafas');
-
-   nombreImagen2.addEventListener('change', function() {
-      // Obtener el valor seleccionado del elemento select
-     /*  var nombreImagenxd2 = nombreImagen2.value; */
-      var opcionSeleccionada = nombreImagen2.options[nombreImagen2.selectedIndex];
-
-// Obtén el valor y la información personalizada
-
-var infoPersonalizada = opcionSeleccionada.getAttribute("data-info-2");
-     imgGafas.src= `/img/${infoPersonalizada}.png`
-    });
-
-  /* hjgjg */
- 
 </script>
 
 @endpush

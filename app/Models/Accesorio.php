@@ -24,5 +24,10 @@ class Accesorio extends Model
         return $this->belongsTo(Gafa::class);
     }
 
+
+    public function camiseta(){
+        return $this->belongsTo(Camiseta::class);
+    }
+
     protected $fillable = ['nombre','image'];
 }

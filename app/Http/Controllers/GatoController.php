@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Accesorio;
 use App\Models\Gafa;
 use App\Models\Gato;
+use App\Models\Camiseta;
 use App\Models\Color;
+use App\Models\Sombrero;
+use App\Models\Expresion;
 use App\Http\Requests\StoreGatoRequest;
 use App\Http\Requests\UpdateGatoRequest;
 use Illuminate\Support\Facades\Auth;
@@ -30,14 +33,23 @@ class GatoController extends Controller
     public function create()
     {
         //
+        $camisetas=Camiseta::join('accesorios as c','camisetas.accesorio_id','=','c.id')
+        ->select('camisetas.id as id','c.nombre as nombre')->get();;
         $gafas=Gafa::join('accesorios as c','gafas.accesorio_id','=','c.id')
         ->select('gafas.id as id','c.nombre as nombre')
         ->get();
         $colors=Color::join('accesorios as c','colors.accesorio_id','=','c.id')
         ->select('colors.id as id','c.nombre as nombre')
         ->get();
+        $sombreros=Sombrero::join('accesorios as c','sombreros.accesorio_id','=','c.id')
+        ->select('sombreros.id as id','c.nombre as nombre')
+        ->get();
+        $expresions=Expresion::join('accesorios as c','expresions.accesorio_id','=','c.id')
+        ->select('expresions.id as id','c.nombre as nombre')
+        ->get();
 
-        return view('gato.create',compact('gafas','colors'));
+
+        return view('gato.create',compact('gafas','colors','sombreros','expresions','camisetas'));
     }
 
     /**
@@ -59,9 +71,10 @@ class GatoController extends Controller
                 'nombre'=>$request->name,
                 'image'=>'alfredoxd.jpg',
                 'color_id'=> $request->color_id,
-                'gafa_id'=> $request->gafas_id,
-                'sombrero_id'=>1,
-                'expresion_id'=>1,
+                'gafa_id'=> $request->gafas_id ? $request->gafas_id :8,
+                'sombrero_id'=> $request->sombrero_id ? $request->sombrero_id :8,
+                'camiseta_id'=> $request->camiseta_id ? $request->camiseta_id :8,
+                'expresion_id'=>$request->expresion_id,
                 'user_id'=>$userId,
 
 
@@ -114,14 +127,22 @@ $gato->save();
     {
       
         //dd()
+        $camisetas=Camiseta::join('accesorios as c','camisetas.accesorio_id','=','c.id')
+        ->select('camisetas.id as id','c.nombre as nombre')->get();;
         $gafas=Gafa::join('accesorios as c','gafas.accesorio_id','=','c.id')
         ->select('gafas.id as id','c.nombre as nombre')
         ->get();
         $colors=Color::join('accesorios as c','colors.accesorio_id','=','c.id')
         ->select('colors.id as id','c.nombre as nombre')
         ->get();
+        $sombreros=Sombrero::join('accesorios as c','sombreros.accesorio_id','=','c.id')
+        ->select('sombreros.id as id','c.nombre as nombre')
+        ->get();
+        $expresions=Expresion::join('accesorios as c','expresions.accesorio_id','=','c.id')
+        ->select('expresions.id as id','c.nombre as nombre')
+        ->get();
 
-        return view('gato.edit',compact('gato','gafas','colors'));
+        return view('gato.edit',compact('gato','gafas','colors','sombreros','expresions','camisetas'));
 
     }
 
@@ -141,10 +162,11 @@ $gato->save();
                 'nombre'=>$request->name,
                 'image'=>'alfredoxd.jpg',
                 'color_id'=> $request->color_id,
-                'gafa_id'=> $request->gafas_id,
-                'sombrero_id'=>1,
-                'expresion_id'=>1,
-                'user_id'=>$user->id,
+                'gafa_id'=> $request->gafas_id ? $request->gafas_id :8,
+                'sombrero_id'=> $request->sombrero_id ? $request->sombrero_id :8,
+                'camiseta_id'=> $request->camiseta_id ? $request->camiseta_id :8,
+                'expresion_id'=>$request->expresion_id,
+                'user_id'=>$userId,
 
 
 

@@ -24,7 +24,7 @@ class StoreGatoRequest extends FormRequest
         return [
             //
             'name'=>'required|max:7',
-            'gafas_id'=>'required|integer|exists:gafas,id',
+            'expresion_id'=>'required|integer|exists:expresions,id',
             'color_id'=>'required|integer|exists:colors,id',
 
 

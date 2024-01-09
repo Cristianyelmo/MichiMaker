@@ -21,6 +21,7 @@ $table->foreignId('color_id')->constrained('colors')->onDelete('cascade')->refer
             $table->foreignId('gafa_id')->constrained('gafas')->onDelete('cascade');
             $table->foreignId('sombrero_id')->constrained('sombreros')->onDelete('cascade');
             $table->foreignId('expresion_id')->constrained('expresions')->onDelete('cascade');
+            $table->foreignId('camiseta_id')->constrained('camisetas')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
