@@ -104,7 +104,7 @@ $gato->save();
 
         
                         return redirect()->route('gatos.index')
-                        ->with('sucess','gato registrado'); 
+                        ->with('success','gato registrado'); 
 
 
         
@@ -220,7 +220,7 @@ $gato->save();
             $gato->delete();
     
             // Redirigir con un mensaje de éxito
-            return redirect()->route('gatos.index')->with('success', 'Eliminado exitosamente');
+            return redirect()->route('gatos.index')->with('no-success', 'Eliminado exitosamente');
         }
     }
 }

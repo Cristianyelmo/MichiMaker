@@ -15,7 +15,7 @@
 </div>
 </a>
 
-      <div class="flex bg-blue  flex-col items-center w-70 h-full p-4 ">
+      <div class="mx-auto flex flex-col items-center bg-blue w-70 h-full p-4 md:flex-row md:justify-center md:flex-wrap md:items-center ">
     @foreach($colors as $color)
      
       <div class="relative m-[30px] ">

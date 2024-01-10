@@ -5,19 +5,13 @@
 @endpush
 @section('user')
 
-@if(session('success'))
-<script>
-    let message  = "{{session('success')}}";
-    console.log(message);
-Swal.fire(`${message}`);
 
-</script>
-@endif
   
    
-<div class="">
+ <div class="">
 <a href="{{route('gatos.create')}}">
 <div class="flex justify-center mt-[30px]">
+    <div class="flex">
 <div class="relative">
 <button class="border border-solid border-4 border-black rounded-full w-[40px] h-[40px] contenedor-1">+</button>
 <div class="bg-black rounded-full w-[40px] h-[40px] cuadrado-negro-1"></div>
@@ -26,10 +20,13 @@ Swal.fire(`${message}`);
 </div>
 </a>
 
-      <div class="flex flex-col items-center bg-blue w-70 h-full p-4 ">
+</div> 
+<div class="container mx-auto bg-blue w-70 p-4">
+      <div class="mx-auto flex flex-col items-center bg-blue w-70 h-full p-4 md:flex-row md:justify-center md:flex-wrap md:items-center">
   @foreach($gatos as $gato) 
      @if($gato->user->id == auth()->user()->id)
       <div class="relative m-[30px] ">
+        
 <div class="border-black border-4 w-[200px] h-[200px] contenedor relative">
  
 <img src="/img/{{$gato->sombrero->accesorio->image}}" alt="" class="z-30 w-[200px] h-[200px] absolute" id="imgSombrero">
@@ -41,10 +38,13 @@ Swal.fire(`${message}`);
 <div class="bg-black  w-[200px] h-[200px] cuadrado-negro"></div>
      
 <!-- crud -->
+<p class="text-center mt-[20px]">{{$gato->nombre}}</p>
 <div class="flex justify-center space-x-3 mt-[20px]">
+
 <!-- <a href="{{route('gatos.create',['gato'=>$gatos])}}" class="border-black border-4 w-[30px] h-[30px]">E</a> -->
 
 <div class="border-black border-4 w-[30px] h-[30px]">
+
   <a href="{{route('gatos.edit',['gato'=>$gato])}}">E</a>
 </div>
 <div class="border-black border-4 w-[30px] h-[30px]">
@@ -63,10 +63,19 @@ Swal.fire(`${message}`);
 
 
 
+
+
 </div>
+</div> 
 
 
-      
+
+<!--  -->
+
+
+
+
+<!--  -->
 
       </div>
 @endsection
@@ -78,7 +87,7 @@ Swal.fire(`${message}`);
       
     function confirmDelete() {
         Swal.fire({
-            title: '¿Seguro que quieres eliminar el michi?',
+            title: `¿Seguro que quieres eliminar el michi ?`,
         
             icon: 'warning',
             showCancelButton: true,
@@ -93,6 +102,29 @@ Swal.fire(`${message}`);
             }
         });
     }
+    
+    @if(session('success'))
+
+    let message  = "{{session('success')}}";
+Swal.fire({
+      title: `${message}`,
+      html: '<div style="display: flex; justify-content: center; align-items: center;"><img src="/img-assets/sucess.gif" alt="Imagen"></div>',
+      confirmButtonText: 'Aceptar'
+    });
+  
+@endif
+
+@if(session('no-success'))
+
+let message  = "{{session('no-success')}}";
+
+Swal.fire({
+  title: `${message}`,
+  html: '<div style="display: flex; justify-content: center; align-items: center;"><img src="/img-assets/no-sucess.gif" alt="Imagen"></div>',
+  confirmButtonText: 'Aceptar'
+});
+
+@endif
 </script>
 @endpush
   
