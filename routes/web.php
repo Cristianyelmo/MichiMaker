@@ -65,7 +65,7 @@ Route::get('https://michimaker-production.up.railway.app/logout', [logoutControl
 }); */
 
 
-Route::get('https://michimaker-production.up.railway.app', [indexController::class,'index'])->name('template');
+Route::get('https://michimaker-production.up.railway.app/', [indexController::class,'index'])->name('template');
 
 
 
