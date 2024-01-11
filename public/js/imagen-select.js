@@ -5,7 +5,7 @@ nombreImagen.addEventListener('change', function() {
 
    var opcionSeleccionada = nombreImagen.options[nombreImagen.selectedIndex];
 var infoPersonalizada = opcionSeleccionada.getAttribute("data-info");
-  imgColor.src= `/img/${infoPersonalizada}.png`
+  imgColor.src= `https://michimaker-production.up.railway.app/storage/img/${infoPersonalizada}.png`
  });
 
 
@@ -20,7 +20,7 @@ nombreImagen3.addEventListener('change', function() {
 // Obtén el valor y la información personalizada
 
 var infoPersonalizada2 = opcionSeleccionada2.getAttribute("data-info-3");
-  imgSombreros.src= `/img/${infoPersonalizada2}.png`
+  imgSombreros.src= `https://michimaker-production.up.railway.app/storage/img/${infoPersonalizada2}.png`
  });
 
 /* hjgjg */
@@ -35,7 +35,7 @@ nombreImagen2.addEventListener('change', function() {
 // Obtén el valor y la información personalizada
 
 var infoPersonalizada = opcionSeleccionada.getAttribute("data-info-2");
-  imgGafas.src= `/img/${infoPersonalizada}.png`
+  imgGafas.src= `https://michimaker-production.up.railway.app/storage/img/${infoPersonalizada}.png`
  });
 
 
@@ -51,7 +51,7 @@ nombreImagen4.addEventListener('change', function() {
 // Obtén el valor y la información personalizada
 
 var infoPersonalizada3 = opcionSeleccionada3.getAttribute("data-info-4");
-  imgExpresion.src= `/img/${infoPersonalizada3}.png`
+  imgExpresion.src= `https://michimaker-production.up.railway.app/storage/img/${infoPersonalizada3}.png`
  });
 
 
@@ -66,5 +66,5 @@ nombreImagen6.addEventListener('change', function() {
 // Obtén el valor y la información personalizada
 
 var infoPersonalizada5 = opcionSeleccionada5.getAttribute("data-info-5");
-  imgCamiseta.src= `/img/${infoPersonalizada5}.png`
+  imgCamiseta.src= `https://michimaker-production.up.railway.app/storage/img/${infoPersonalizada5}.png`
  });

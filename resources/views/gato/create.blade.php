@@ -31,12 +31,12 @@
 <div class="flex flex-col items-center lg:justify-center">
     <div class="border-4 border-black w-[300px] h-[300px] relative mt-[16px]" id="miDiv">
        
-                <img src="/img/sin-eso.png" alt="" class="z-30 w-[300px] h-[300px] absolute" id="imgSombrero">
-     <img src="/img/sin-eso.png" alt="" class="z-20 w-[300px] h-[300px] absolute" id="imgGafas"> 
+                <img src="https://michimaker-production.up.railway.app/storage/img/sin-eso.png" alt="" class="z-30 w-[300px] h-[300px] absolute" id="imgSombrero">
+     <img src="https://michimaker-production.up.railway.app/storage/img/sin-eso.png" alt="" class="z-20 w-[300px] h-[300px] absolute" id="imgGafas"> 
            
-                <img src="/img/sin-eso.png" alt="" class="z-10 w-[300px] h-[300px] absolute" id="imgExpresion">
-                <img src="/img/sin-eso.png" alt="" class="z-10 w-[300px] h-[300px] absolute" id="imgCamiseta">
-                <img src="/img/sin-eso.png" alt="" class="w-[300px] h-[300px]" id="imgColor">
+                <img src="https://michimaker-production.up.railway.app/storage/img/sin-eso.png" alt="" class="z-10 w-[300px] h-[300px] absolute" id="imgExpresion">
+                <img src="https://michimaker-production.up.railway.app/storage/img/sin-eso.png" alt="" class="z-10 w-[300px] h-[300px] absolute" id="imgCamiseta">
+                <img src="https://michimaker-production.up.railway.app/storage/img/sin-eso.png" alt="" class="w-[300px] h-[300px]" id="imgColor">
             </div>
         <form  action="{{ route('gatos.store') }}" method="post" enctype="multipart/form-data">
             @csrf

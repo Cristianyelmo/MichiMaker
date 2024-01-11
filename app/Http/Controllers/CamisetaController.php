@@ -132,7 +132,7 @@ if ($request->hasFile('image')){
            }
 
 
-           $ruta = public_path('img');
+           $ruta = public_path('storage/img');
            $imagen->move($ruta, $name);
 
 

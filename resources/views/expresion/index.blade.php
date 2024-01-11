@@ -21,7 +21,7 @@
       <div class="relative m-[30px] ">
 <div class="border-black border-4 w-[200px] h-[200px] contenedor">
  
-  <img src="/img/{{$expresion->accesorio->image}}" alt="">
+  <img src="https://michimaker-production.up.railway.app/storage/img/{{$expresion->accesorio->image}}" alt="">
 </div>
 <div class="bg-black  w-[200px] h-[200px] cuadrado-negro"></div>
      

@@ -58,7 +58,7 @@ class ColorController extends Controller
                 $nombre = $request->nombre;
                 $name = $nombre .'.' . $imagen->getClientOriginalExtension(); 
 
-                $ruta = public_path('img');
+                $ruta = public_path('storage/img');
                $imagen->move($ruta, $name);  
                }else{
                $name = null;
@@ -130,7 +130,7 @@ class ColorController extends Controller
            }
 
 
-           $ruta = public_path('img');
+           $ruta = public_path('storage/img');
            $imagen->move($ruta, $name);
 
 

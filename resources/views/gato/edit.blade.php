@@ -35,28 +35,28 @@
     <div class="border-4 border-black w-[300px] h-[300px] relative" id="miDiv">
     @foreach ($sombreros as $item)
     @if($gato->sombrero_id == $item->id)
-                <img src="/img/{{$item->nombre}}.png" alt="" class="z-30 w-[300px] h-[300px] absolute" id="imgSombrero">
+                <img src="https://michimaker-production.up.railway.app/storage/img/{{$item->nombre}}.png" alt="" class="z-30 w-[300px] h-[300px] absolute" id="imgSombrero">
                 @endif
                 @endforeach
    
     @foreach ($gafas as $item)
     @if($gato->gafa_id == $item->id)
-                <img src="/img/{{$item->nombre}}.png" alt="" class="z-20 w-[300px] h-[300px] absolute" id="imgGafas">
+                <img src="https://michimaker-production.up.railway.app/storage/img/{{$item->nombre}}.png" alt="" class="z-20 w-[300px] h-[300px] absolute" id="imgGafas">
                 @endif
                 @endforeach
                 @foreach ($expresions as $item)
     @if($gato->expresion_id == $item->id)
-                <img src="/img/{{$item->nombre}}.png" alt="" class="z-10 w-[300px] h-[300px] absolute" id="imgExpresion">
+                <img src="https://michimaker-production.up.railway.app/storage/img/{{$item->nombre}}.png" alt="" class="z-10 w-[300px] h-[300px] absolute" id="imgExpresion">
                 @endif
                 @endforeach
                 @foreach ($camisetas as $item)
     @if($gato->camiseta_id == $item->id)
-                <img src="/img/{{$item->nombre}}.png" alt="" class="z-30 w-[300px] h-[300px] absolute" id="imgCamiseta">
+                <img src="https://michimaker-production.up.railway.app/storage/img/{{$item->nombre}}.png" alt="" class="z-30 w-[300px] h-[300px] absolute" id="imgCamiseta">
                 @endif
                 @endforeach
                 @foreach ($colors as $item)
     @if($gato->color_id == $item->id)
-                <img src="/img/{{$item->nombre}}.png" alt="" class="w-[300px] h-[300px]" id="imgColor">
+                <img src="https://michimaker-production.up.railway.app/storage/img/{{$item->nombre}}.png" alt="" class="w-[300px] h-[300px]" id="imgColor">
                 @endif
                 @endforeach
             </div>
