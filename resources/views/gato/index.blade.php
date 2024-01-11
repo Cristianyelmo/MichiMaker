@@ -29,7 +29,7 @@
         
 <div class="border-black border-4 w-[200px] h-[200px] contenedor relative">
  
-<img src="https://michimaker-production.up.railway.app/storagehttps://michimaker-production.up.railway.app/storage/img/{{$gato->sombrero->accesorio->image}}" alt="" class="z-30 w-[200px] h-[200px] absolute" id="imgSombrero">
+<img src="https://michimaker-production.up.railway.app/storage/img/{{$gato->sombrero->accesorio->image}}" alt="" class="z-30 w-[200px] h-[200px] absolute" id="imgSombrero">
   <img src="https://michimaker-production.up.railway.app/storage/img/{{$gato->gafa->accesorio->image}}" alt="" class=" z-20 w-[200px] h-[200px] absolute" id="imgGafas">
   <img src="https://michimaker-production.up.railway.app/storage/img/{{$gato->expresion->accesorio->image}}" alt="" class="z-10 w-[200px] h-[200px] absolute" id="imgExpresion">
   <img src="https://michimaker-production.up.railway.app/storage/img/{{$gato->camiseta->accesorio->image}}" alt="" class="z-10 w-[200px] h-[200px] absolute" id="imgExpresion">

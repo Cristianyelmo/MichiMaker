@@ -16,7 +16,7 @@
   <input type="file" name="image" class="hidden" id="fileInput">
 <div class="relative m-[30px] cursor-pointer " id="openFileInput">
 <div class="border-black border-4 w-[200px] h-[200px] contenedor">
-<img src="/img/{{$colors->accesorio->image}}" id="uploadedImage" alt="">
+<img src="https://michimaker-production.up.railway.app/storage/img/{{$colors->accesorio->image}}" id="uploadedImage" alt="">
 </div>
 <div class="bg-black  w-[200px] h-[200px] cuadrado-negro"></div>
      

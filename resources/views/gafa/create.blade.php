@@ -57,37 +57,9 @@
       @endsection
 
 @push('js')
-<script>
+<script src='/js/upload-image.js'>
     // Obtén el div y el input por sus ID
-    const openFileInput = document.getElementById('openFileInput');
-    const fileInput = document.getElementById('fileInput');
-    const uploadedImage = document.getElementById('uploadedImage');
-    // Agrega un evento de clic al div para activar el input de archivo
-    openFileInput.addEventListener('click', () => {
-      fileInput.click();
-      console.log('hoola')
-      
-      
-    })
-
-    fileInput.addEventListener('change', () => {
-      const file = fileInput.files[0];
-
-      if (file) {
-        // Crear un objeto FileReader para leer el archivo como una URL de datos
-        const reader = new FileReader();
-
-        // Configurar el evento de carga para actualizar la imagen una vez que se haya cargado
-        reader.onload = function (e) {
-          console.log(e)
-          uploadedImage.src = e.target.result;
-          uploadedImage.classList.remove('hidden'); // Mostrar la imagen
-        };
-
-        // Leer el archivo como una URL de datos
-        reader.readAsDataURL(file);
-      }
-    });
+   
     // Agrega un evento de cambio al input de archivo para manejar la selección del archivo
     
       // Puedes realizar acciones adicionales aquí, por ejemplo, mostrar el nombre del archivo seleccionado
