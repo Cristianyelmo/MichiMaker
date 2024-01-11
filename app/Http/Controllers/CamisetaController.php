@@ -58,7 +58,7 @@ class CamisetaController extends Controller
                 $nombre = $request->nombre;
                 $name = $nombre .'.' . $imagen->getClientOriginalExtension(); 
 
-                $ruta = '/img';
+                $ruta = 'img';
                $imagen->move($ruta, $name);  
                }else{
                $name = null;
