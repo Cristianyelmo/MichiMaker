@@ -52,17 +52,22 @@ class ColorController extends Controller
         try{
             DB::beginTransaction();
            
-            if($request->hasFile('image')){
-              
-                 $imagen = $request->image;
-                $nombre = $request->nombre;
-                $name = $nombre .'.' . $imagen->getClientOriginalExtension(); 
+         
+            
 
-                $ruta = public_path('img');
-               $imagen->move($ruta, $name);  
-               }else{
-               $name = null;
-               } 
+               if ($request->hasFile('image')) {
+                $imagen = $request->image;
+                $nombre = $request->nombre;
+                $name = $nombre .'.' . $imagen->getClientOriginalExtension();
+            
+                // Ruta directa al directorio 'public'
+                $ruta = public_path();
+            
+                // Mueve la imagen al directorio 'public' con el nombre proporcionado
+                $imagen->move($ruta, $name);
+            } else {
+                $name = null;
+            }
 
                
 
