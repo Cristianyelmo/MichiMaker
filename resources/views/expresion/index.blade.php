@@ -26,11 +26,10 @@
 <div class="bg-black  w-[200px] h-[200px] cuadrado-negro"></div>
      
 <!-- crud -->
-<div class="flex justify-center space-x-3 mt-[20px]">
-<a href="{{route('expresions.edit',['expresion'=>$expresion])}}" class="border-black border-4 w-[30px] h-[30px]">E</a>
+<div class="flex justify-center space-x-3 mt-[20px]  text-white flex justify-center">
+<a href="{{route('expresions.edit',['expresion'=>$expresion])}}" class="bg-[#008000] border-black border-4 w-[30px] h-[30px]"><i class="fa-solid fa-pen-to-square"></i></a>
 
-<div class="border-black border-4 w-[30px] h-[30px]"></div>
-<div class="border-black border-4 w-[30px] h-[30px]"></div>
+
 </div>
 <!--  -->
 

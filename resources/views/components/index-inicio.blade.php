@@ -18,7 +18,11 @@
 
 
 <div class="flex flex-col items-center">
-<p>{{$gato->user->name}}</p>
+  <div class="flex ">
+    <img src="/img-assets/profile.png" class="w-[50px] h-[40px] mb-[10px]" alt="">
+  <p class=" mt-[5px]">{{$gato->user->name}}</p>
+  </div>
+
 <p>{{$gato->nombre}}</p>
 </div>
 </div>

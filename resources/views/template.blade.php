@@ -116,7 +116,7 @@ body {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: black;
+        background-color: #EFC8FD;
         justify-content: center;
         align-items: center;
         z-index: 9999;
@@ -149,7 +149,7 @@ body {
    
    <div id="overlay" class="overlay">
        <!--  <div class="loader"></div> -->
-       <p class="text-white">Cargando...</p>
+<img src="/img-assets/sucess.gif" alt="">
     </div>
     <div id="onload-page">
     <x-navigation-header/>
@@ -210,7 +210,7 @@ body {
         };
     </script>
   <script  src="https://cdn.tailwindcss.com"></script>
- 
+  <script src="https://kit.fontawesome.com/c63e399f09.js" crossorigin="anonymous"></script>
  
 </body>
 

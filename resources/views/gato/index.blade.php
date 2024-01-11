@@ -16,7 +16,7 @@
 <button class="border border-solid border-4 border-black rounded-full w-[40px] h-[40px] contenedor-1">+</button>
 <div class="bg-black rounded-full w-[40px] h-[40px] cuadrado-negro-1"></div>
 </div>
-<h1 class="ml-[15px] mt-[3px]">Crear color</h1>
+<h1 class="ml-[15px] mt-[3px]">Crear michi</h1>
 </div>
 </a>
 
@@ -43,15 +43,15 @@
 
 <!-- <a href="{{route('gatos.create',['gato'=>$gatos])}}" class="border-black border-4 w-[30px] h-[30px]">E</a> -->
 
-<div class="border-black border-4 w-[30px] h-[30px]">
+<div class="border-black border-4 w-[30px] h-[30px] bg-[#008000] text-white flex justify-center">
 
-  <a href="{{route('gatos.edit',['gato'=>$gato])}}">E</a>
+  <a href="{{route('gatos.edit',['gato'=>$gato])}}"><i class="fa-solid fa-pen-to-square"></i></a>
 </div>
-<div class="border-black border-4 w-[30px] h-[30px]">
+<div class="border-black border-4 w-[30px] h-[30px] bg-[#f52626] text-white flex justify-center">
 <form action="{{route('gatos.destroy',['gato'=>$gato->id])}}" method='post'  id="deleteForm">
                         @method('DELETE')
                         @csrf
-                    <button type='button' onclick="confirmDelete()" class="btn btn-primary">B</button>
+                    <button type='button' onclick="confirmDelete()" class="btn btn-primary"><i class="fa-solid fa-trash"></i></button>
                     </form>
 </div>
 </div>
