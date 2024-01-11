@@ -52,18 +52,22 @@ class CamisetaController extends Controller
         try{
             DB::beginTransaction();
            
-            if($request->hasFile('image')){
-              
-                 $imagen = $request->image;
+            if ($request->hasFile('image')) {
+                $imagen = $request->image;
                 $nombre = $request->nombre;
-                $name = $nombre .'.' . $imagen->getClientOriginalExtension(); 
-
-                $ruta = 'img';
-               $imagen->move($ruta, $name);  
-               }else{
-               $name = null;
-               } 
-
+                $name = $nombre . '.' . $imagen->getClientOriginalExtension(); 
+            
+                // Utilizando la función asset() para generar la URL correcta
+                $ruta = public_path('storage/img');
+                
+                // Crear la carpeta si no existe
+                
+            
+                // Mover la imagen al directorio de destino
+                $imagen->move($ruta, $name);  
+            } else {
+                $name = null;
+            }
                
 
 
