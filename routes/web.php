@@ -53,19 +53,19 @@ Route::middleware('checkRole:2')->group(function () {
     ]);
 });
 
-Route::get('/login', [loginController::class,'index'])->name('login');
-Route::post('/login', [loginController::class,'login']);
+Route::get('https://michimaker-production.up.railway.app/login', [loginController::class,'index'])->name('login');
+Route::post('https://michimaker-production.up.railway.app/login', [loginController::class,'login']);
 
-Route::get('/register', [RegisterController::class,'index'])->name('register');
-Route::post('/register', [RegisterController::class,'register']);
+Route::get('https://michimaker-production.up.railway.app/register', [RegisterController::class,'index'])->name('register');
+Route::post('https://michimaker-production.up.railway.app/register', [RegisterController::class,'register']);
 
-Route::get('/logout', [logoutController::class,'logout'])->name('logout');
+Route::get('https://michimaker-production.up.railway.app/logout', [logoutController::class,'logout'])->name('logout');
 /* Route::get('/', function () {
     return view('template');
 }); */
 
 
-Route::get('/', [indexController::class,'index'])->name('template');
+Route::get('https://michimaker-production.up.railway.app', [indexController::class,'index'])->name('template');
 
 
 
