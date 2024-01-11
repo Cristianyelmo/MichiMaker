@@ -16,7 +16,7 @@
         <div class="flex flex-col items-center mb-[15px] lg:flex-row lg:space-x-4 lg:justify-center">
         <img src="/img-assets/pixelCAT.png" class="lg:w-[350px]" alt="">
 <a href="/" class="text-white text-stroke">inicio</a>
-<a href="/gatos" class="text-white text-stroke">Crear michi</a>
+<a href="/gatos" class="text-white text-stroke">mis michis</a>
 <div class="flex space-x-2">
     <img src="/img-assets/profile.png" class="w-[50px] h-[40px]" alt="">
 <a href="/" class="text-white text-stroke">Hola {{auth()->user()->name}}</a>

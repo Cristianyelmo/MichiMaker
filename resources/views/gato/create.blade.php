@@ -40,19 +40,25 @@
             </div>
         <form  action="{{ route('gatos.store') }}" method="post" enctype="multipart/form-data">
             @csrf
+
+
+            <div class="flex flex-col items-center text-center">
             <p class="mt-[10px] text-center">Nombre</p>
             <input type="text" class="border-black border-4 p-4 m-[5px]" name="name">
             @error('name')
 <small class='text-danger'>{{'*'.$message}}</small>
 
 @enderror
+</div>
+
+
 </div>     <!--   <input type="file" name="image" id="imageInput" accept="image/*" class="hidden"> -->
 <div class="flex flex-col items-center">
 
 <p>Color</p>
     <div class="relative m-3">
 
-            <select  name="color_id" id="presentacione_id" class="form-control p-4 border-black border-4 contenedor-7 outline-none"required>
+            <select  name="color_id" id="presentacione_id" class="form-control p-4 border-black border-4 contenedor-7 outline-none" required>
             <option value="" disabled selected hidden>Selecciona</option>
                 @foreach ($colors as $item)
                     <option value="{{$item->id}}"  data-info="{{$item->nombre}}"  >{{$item->nombre}}</option>
@@ -67,8 +73,13 @@
 <small class='text-danger'>{{'*'.$message}}</small>
 
 @enderror
+<!--  -->
+
+
+
+<!--  -->
 <p>Expresion</p>
-            <div class="relative m-5">
+            <div class="relative m-3">
 <select name="expresion_id" id="expresions_id" class="form-control p-4 border-black border-4 contenedor-7 outline-none" required>
             <option value="" disabled selected hidden>Selecciona</option>
                 @foreach ($expresions as $item)
@@ -118,7 +129,7 @@
             
 
 
-            <button type="submit" class="bg-white border-black border-4">Crear michi</button>
+            <button type="submit" class="bg-white border-black border-4 p-4 mt-[20px] mb-[20px]">Crear michi</button>
         </form>
         </div>
        

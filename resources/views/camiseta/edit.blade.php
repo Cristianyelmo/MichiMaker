@@ -34,17 +34,17 @@
 @enderror
 
 
-  <div class="ml-[30px] relative">
-<input type="text" name="nombre" class="outline-none border border-4 border-black p-2 w-[460px] contenedor-2"
+  <div class="relative">
+<input type="text" name="nombre" class="outline-none border border-4 border-black w-[320px] p-[7px]   contenedor-2"
 value="{{old('nombre',$camisetas->accesorio->nombre)}}">
-<div class=" w-[460px] bg-black h-[50px] cuadrado-negro-2"></div>
+<div class="w-[320px] bg-black h-[50px] cuadrado-negro-2"></div>
 </div>
 @error('nombre')
-<small class='text-danger'>{{'*'.$message}}</small>
+<small class='text-danger mt-[20px]'>{{'*'.$message}}</small>
 
 @enderror      
  
-<div class="relative mt-[30px]">
+<div class="relative mb-[30px]">
 <button type="submit" class="w-[90px]  h-[60px]   border border-black border-4 mt-[40px] rounded-full contenedor-3">Editar</button>
 <div class="w-[90px]  h-[60px]   bg-black  rounded-full cuadrado-negro-3"></div>
 </div> 

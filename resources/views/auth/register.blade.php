@@ -91,31 +91,41 @@ body {
                 <main >
                   
 
-                                @if($errors->any())
-                               @foreach ($errors->all() as $item)
-                               <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  {{$item}}
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-
-                               @endforeach
-
-                                @endif
+                              
 
 
+
+<div class="flex flex-col items-center mt-[80px]">                               
 <form action="/register" method="post" class="flex flex-col items-center">
 @csrf
+<label>nombre</label>
+<input type="text"  name="name" class="p-3" placeholder="name" >
+<label>email</label>
+<input type="email" name="email" class="p-3" placeholder="hola@gmail.com">
+<label>password</label>
+<input type="password" name="password" class="p-3" placeholder="password" >
 
-<input type="text" name="name" placeholder="name" >
-<input type="email" name="email" placeholder="hola@gmail.com">
-<input type="password" name="password" placeholder="password" >
-@error('email')
-<small class='text-danger'>{{'*'.$message}}</small>
 
-@enderror
-<button type="submit">Crear usuario</button>
+
+
+<button type="submit " class="bg-white p-3 mt-[15px] border-black border-4">  <a class="btn btn-primary " >crear usuario</a></button>
 
 </form>
+<div class="flex flex-col items-center text-center">
+                                        @if($errors->any())
+                               @foreach ($errors->all() as $item)
+                               <div class="text-red-500">
+  {{$item}}
+ 
+</div>
+@endforeach
+
+@endif
+</div>                               
+</div>
+
+
+
 </main>
                 <script>
         // Muestra el overlay al iniciar la carga de la página

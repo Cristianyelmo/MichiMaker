@@ -104,7 +104,7 @@ $gato->save();
 
         
                         return redirect()->route('gatos.index')
-                        ->with('success','gato registrado'); 
+                        ->with('success','michi creado'); 
 
 
         
@@ -195,7 +195,7 @@ $gato->save();
 
         
                         return redirect()->route('gatos.index')
-                        ->with('sucess','gato registrado'); 
+                        ->with('sucess','michi editado'); 
 
 
         
@@ -220,7 +220,7 @@ $gato->save();
             $gato->delete();
     
             // Redirigir con un mensaje de éxito
-            return redirect()->route('gatos.index')->with('no-success', 'Eliminado exitosamente');
+            return redirect()->route('gatos.index')->with('no-success', 'michi borrado');
         }
     }
 }

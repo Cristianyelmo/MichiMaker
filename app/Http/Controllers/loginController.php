@@ -15,12 +15,12 @@ class loginController extends Controller
             $user = Auth::user();
             $rolId = $user->rol_id;
 
-            // Hacer una condición basada en el rol_id
+           
             if ($rolId == 1) {
-                // Acciones específicas para el rol_id 1
+               
                 return redirect()->route('colors.index');
             } elseif ($rolId == 2) {
-                // Acciones específicas para el rol_id 2
+               
                 return redirect()->route('gatos.index');
             }
          
@@ -41,7 +41,7 @@ class loginController extends Controller
   return redirect()->to('login')
   ->withErrors('Credenciales incorrectas');
   }
-  /* creat una seccion */
+
   
   $user =Auth::getProvider()->retrieveByCredentials($request->only('email','password'));
   Auth::login($user);
@@ -50,7 +50,7 @@ class loginController extends Controller
   if ($user->rol_id == '1') {
     return redirect()->route('colors.index');
   }  else {
-    // Redirige a una ruta por defecto si no hay coincidencia de roles
+
     return redirect()->route('gatos.index')->with('success','Bienvenido '.$user->name);
   }
   

@@ -15,7 +15,10 @@
   <input type="file" name="image" class="hidden" id="fileInput">
 <div class="relative m-[30px] cursor-pointer " id="openFileInput">
 <div class="border-black border-4 w-[200px] h-[200px] contenedor">
-<img src="/img/photo.jpg" id="uploadedImage" alt="">
+  <div class="flex justify-center">
+<img src="/img-assets/sucess.gif" id="uploadedImage" alt="">
+</div>
+<p class="text-center" id="text-photo">haz click para subir una foto</p>
 </div>
 <div class="bg-black  w-[200px] h-[200px] cuadrado-negro"></div>
      
@@ -27,23 +30,23 @@
 
 </label>
 @error('image')
-<small class='text-danger'>{{'*'.$message}}</small>
+<small class='text-danger '>{{'*'.$message}}</small>
 
 @enderror
 
 
 
-  <div class="ml-[30px] relative">
-<input type="text" name="nombre" class="outline-none border border-4 border-black p-2 w-[460px] contenedor-2">
-<div class=" w-[460px] bg-black h-[50px] cuadrado-negro-2"></div>
+<div class=" relative">
+<input type="text" name="nombre" class="outline-none border border-4 border-black w-[320px] p-[7px]   contenedor-2">
+<div class=" w-[320px] bg-black h-[50px] cuadrado-negro-2"></div> 
 </div>
 @error('nombre')
-<small class='text-danger'>{{'*'.$message}}</small>
+<small class='text-danger mt-[20px]'>{{'*'.$message}}</small>
 
 @enderror
  
-<div class="relative mt-[30px]">
-<button type="submit" class="w-[90px]  h-[60px]   border border-black border-4 mt-[40px] rounded-full contenedor-3">Crear</button>
+<div class="relative mb-[30px]">
+<button type="submit" class="w-[90px]  h-[60px] bg-white  border border-black border-4 mt-[40px] rounded-full contenedor-3">Crear</button>
 <div class="w-[90px]  h-[60px]   bg-black  rounded-full cuadrado-negro-3"></div>
 </div> 
 

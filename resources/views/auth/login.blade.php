@@ -91,37 +91,39 @@ body {
                 <main >
                   
 
-                                @if($errors->any())
-                               @foreach ($errors->all() as $item)
-                               <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  {{$item}}
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-
-                               @endforeach
-
-                                @endif
-
-                                    
+                                
+                              
+<div class="flex flex-col items-center mt-[80px]">
                                         <form action="/login" method="post" class="flex flex-col items-center">
                                             @csrf
-                                            
-                                                <input class="form-control" id="inputEmail" type="email" name="email" placeholder="name@example.com" />
-                                                <label for="inputEmail">Email address</label>
-                                            
-                                                <input class="form-control" id="inputPassword" type="password" name="password" placeholder="Password" />
+                                            <label for="inputEmail">Email address</label>
+                                                <input class="form-control p-3" id="inputEmail" type="email" name="email" placeholder="name@example.com" />
+                                                
                                                 <label for="inputPassword">Password</label>
+                                                <input class="form-control p-3" id="inputPassword" type="password" name="password" placeholder="Password" />
+                                               
                                             
                                            <!--  <div class="form-check mb-3">
                                                 <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
                                                 <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
                                             </div> -->
+                                            <a href="/register" class="text-[#b303b3] text-center mt-[5px]">No tienes cuenta? Registrate</a>
                                             
                                                <!--  <a class="small" href="password.html">Forgot Password?</a> -->
-                                              <button type="submit">  <a class="btn btn-primary" >Login</a></button>
+                                              <button type="submit " class="bg-white p-3 mt-[15px] border-black border-4">  <a class="btn btn-primary " >Login</a></button>
                                             
                                         </form>
-                                    
+                                        <div class="flex flex-col items-center text-center">
+                                        @if($errors->any())
+                               @foreach ($errors->all() as $item)
+                               <div class="text-red-500">
+  {{$item}}
+ 
+</div>
+@endforeach
+
+@endif
+</div>                  
                 </main>
                 <script>
         // Muestra el overlay al iniciar la carga de la página

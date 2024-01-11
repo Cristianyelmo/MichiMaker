@@ -15,7 +15,7 @@
 </div>
 </a>
 
-      <div class="flex bg-blue  flex-col items-center w-70 h-full p-4 ">
+      <div class="flex flex-col items-center bg-blue w-70 h-full p-4 md:flex-row md:justify-center md:flex-wrap md:items-center ">
     @foreach($expresions as $expresion)
      
       <div class="relative m-[30px] ">
@@ -26,9 +26,10 @@
 <div class="bg-black  w-[200px] h-[200px] cuadrado-negro"></div>
      
 <!-- crud -->
-<div class="flex justify-center space-x-3 mt-[20px]  text-white flex justify-center">
+<div class="flex justify-center space-x-3 mt-[20px]  text-white ">
+      <div class="flex justify-center">
 <a href="{{route('expresions.edit',['expresion'=>$expresion])}}" class="bg-[#008000] border-black border-4 w-[30px] h-[30px]"><i class="fa-solid fa-pen-to-square"></i></a>
-
+</div>
 
 </div>
 <!--  -->
