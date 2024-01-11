@@ -12,7 +12,7 @@ class Userseeder extends Seeder
      */
     public function run(): void
     {
-        $user = User::insert([
+        $user = User::create([
             
             'name'=>'admin',
             'email'=>'admin@gmail.com',
