@@ -94,7 +94,7 @@ body {
                                 
                               
 <div class="flex flex-col items-center mt-[80px]">
-                                        <form action="https://michimaker-production.up.railway.app/login" method="post" class="flex flex-col items-center">
+                                        <form action="/login" method="post" class="flex flex-col items-center">
                                             @csrf
                                             <label for="inputEmail">Email address</label>
                                                 <input class="form-control p-3" id="inputEmail" type="email" name="email" placeholder="name@example.com" />

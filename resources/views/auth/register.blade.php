@@ -96,7 +96,7 @@ body {
 
 
 <div class="flex flex-col items-center mt-[80px]">                               
-<form action="https://michimaker-production.up.railway.app/register" method="post" class="flex flex-col items-center">
+<form action="/register" method="post" class="flex flex-col items-center">
 @csrf
 <label>nombre</label>
 <input type="text"  name="name" class="p-3" placeholder="name" >
