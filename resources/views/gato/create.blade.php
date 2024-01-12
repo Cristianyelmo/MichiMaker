@@ -58,7 +58,7 @@
 <p>Color</p>
     <div class="relative m-3">
 
-            <select  name="color_id" id="presentacione_id" class="form-control p-4 border-black border-4 contenedor-7 outline-none" required>
+            <select  name="color_id" id="presentacione_id" onchange="playSound()" class="form-control p-4 border-black border-4 contenedor-7 outline-none"  required>
             <option value="" disabled selected hidden>Selecciona</option>
                 @foreach ($colors as $item)
                     <option value="{{$item->id}}"  data-info="{{$item->nombre}}"  >{{$item->nombre}}</option>
@@ -66,7 +66,7 @@
             </select>
             <div class="bg-black  w-[210px] h-[55px] cuadrado-negro-7"></div>
             </div>
-
+   
 
 
             @error('color_id')
@@ -80,7 +80,7 @@
 <!--  -->
 <p>Expresion</p>
             <div class="relative m-3">
-<select name="expresion_id" id="expresions_id" class="form-control p-4 border-black border-4 contenedor-7 outline-none" required>
+<select name="expresion_id" id="expresions_id" onchange="playSound()" class="form-control p-4 border-black border-4 contenedor-7 outline-none" required>
             <option value="" disabled selected hidden>Selecciona</option>
                 @foreach ($expresions as $item)
                     <option value="{{$item->id}}"  data-info-4="{{$item->nombre}}" >{{$item->nombre}}</option>
@@ -94,7 +94,7 @@
 @enderror
 <p>Gafas</p>
 <div class="relative m-5">
-            <select name="gafas_id" id="gafas_id" class="form-control p-4 border-black border-4 contenedor-7 outline-none">
+            <select name="gafas_id" id="gafas_id" onchange="playSound()" class="form-control p-4 border-black border-4 contenedor-7 outline-none">
             <option value="" disabled selected hidden>Selecciona</option>
                 @foreach ($gafas as $item)
                     <option value="{{$item->id}}" data-info-2="{{$item->nombre}}" >{{$item->nombre}}</option>
@@ -106,7 +106,7 @@
             <p>Sombrero</p>
             <div class="relative m-5">
 
-<select name="sombrero_id" id="sombreros_id" class="form-control p-4 border-black border-4 contenedor-7 outline-none" >
+<select name="sombrero_id" id="sombreros_id" onchange="playSound()" class="form-control p-4 border-black border-4 contenedor-7 outline-none" >
             <option value="" disabled selected hidden>Selecciona</option>
                 @foreach ($sombreros as $item)
                     <option value="{{$item->id}}"  data-info-3="{{$item->nombre}}" >{{$item->nombre}}</option>
@@ -117,7 +117,7 @@
 
             <p>Camiseta</p>
             <div class="relative m-5">
-            <select name="camiseta_id" id="camisetas_id" class="form-control p-4 border-black border-4 contenedor-7 outline-none" >
+            <select name="camiseta_id" onchange="playSound()" id="camisetas_id" class="form-control p-4 border-black border-4 contenedor-7 outline-none" >
             <option value="" disabled selected hidden>Selecciona</option>
                 @foreach ($camisetas as $item)
                 
@@ -136,6 +136,10 @@
     </div>
     @endsection
     </div>
+    <audio id="myAudio">
+    <source src="/sound/option.mp3" type="audio/mp3">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
 @push('js')
 <script src="/js/imagen-select.js">
 
@@ -143,6 +147,12 @@
 
 </script>
 
+<script>
+     function playSound() {
+      var audio = document.getElementById("myAudio");
+      audio.play();
+    }
+</script>
 @endpush
 
 

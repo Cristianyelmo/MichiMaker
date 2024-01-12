@@ -78,6 +78,21 @@
 <!--  -->
 
       </div>
+
+
+
+
+
+      <audio id="myAudio">
+    <source src="/sound/ronroneo.mp3" type="audio/mp3">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
+
+  <audio id="myAudio-no-sucess">
+    <source src="/sound/miau2.mp3" type="audio/mp3">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
 @endsection
 
 @push('js')
@@ -111,7 +126,11 @@ Swal.fire({
       html: '<div style="display: flex; justify-content: center; align-items: center;"><img src="/img-assets/sucess.gif" alt="Imagen"></div>',
       confirmButtonText: 'Aceptar'
     });
-  
+    
+
+
+    var audio = document.getElementById("myAudio");
+      audio.play();
 @endif
 
 @if(session('no-success'))
@@ -123,7 +142,8 @@ Swal.fire({
   html: '<div style="display: flex; justify-content: center; align-items: center;"><img src="/img-assets/no-sucess.gif" alt="Imagen"></div>',
   confirmButtonText: 'Aceptar'
 });
-
+var audio = document.getElementById("myAudio-no-sucess");
+      audio.play();
 @endif
 </script>
 @endpush
