@@ -45,7 +45,7 @@
 
 <div class="border-black border-4 w-[30px] h-[30px] bg-[#008000] text-white flex justify-center">
 
-  <a href="{{ ('https://michimaker-production.up.railway.app/gatos/edit', ['gato' => $gato->id]) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+  <a href="{{ secure('/gatos/edit', ['gato' => $gato->id]) }}"><i class="fa-solid fa-pen-to-square"></i></a>
 </div>
 <div class="border-black border-4 w-[30px] h-[30px] bg-[#f52626] text-white flex justify-center">
 <form action="{{ secure('/gatos/delete', ['gato' => $gato->id]) }}" method="post" id="deleteForm">
