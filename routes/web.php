@@ -47,12 +47,13 @@ Route::middleware('checkRole:1')->group(function () {
 
 
 Route::middleware('checkRole:2')->group(function () {
-    Route::resources([
-        
-        'gatos'=> GatoController::class,
-       
-    ]);
-    Route::post('/gatos', [GatoController::class, 'store'])->name('gatos.store');
+  
+    Route::get('/gatos', [GatoController::class, 'index']);
+    Route::get('/gatos/edit', [GatoController::class, 'edit']);
+    Route::post('/gatos/edit', [GatoController::class, 'update']);
+    Route::post('/gatos/create', [GatoController::class, 'store']);
+    Route::get('/gatos/create', [GatoController::class, 'create']);
+    Route::delete('/gatos/delete', [GatoController::class, 'destroy']);
 });
 
 Route::get('/login', [loginController::class,'index'])->name('login');
