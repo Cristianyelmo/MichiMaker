@@ -220,7 +220,7 @@ $gato->save();
             $gato->delete();
     
             // Redirigir con un mensaje de éxito
-            return redirect()->route('https://michimaker-production.up.railway.app/gatos')->with('no-success', 'michi borrado');
+            return redirect('https://michimaker-production.up.railway.app/gatos')->with('no-success', 'michi borrado');
         }
     }
 }
