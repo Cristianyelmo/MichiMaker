@@ -38,7 +38,7 @@
                 <img src="https://michimaker-production.up.railway.app/storage/img/sin-eso.png" alt="" class="z-10 w-[300px] h-[300px] absolute" id="imgCamiseta">
                 <img src="https://michimaker-production.up.railway.app/storage/img/sin-eso.png" alt="" class="w-[300px] h-[300px]" id="imgColor">
             </div>
-        <form  action="{{ secure_url('gatos.store') }}" method="post" enctype="multipart/form-data">
+        <form  action="https://michimaker-production.up.railway.app/gatos" method="post" enctype="multipart/form-data">
             @csrf
 
 
