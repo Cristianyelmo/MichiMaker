@@ -58,6 +58,7 @@ return [
     'url' => env('APP_URL', 'https://michimaker-production.up.railway.app/'),
 
     'asset_url' => env('ASSET_URL'),
+    'force_schema' => 'https'
 
     /*
     |--------------------------------------------------------------------------
