@@ -24,7 +24,7 @@ class GatoController extends Controller
         $gatos = Gato::with(['gafa.accesorio','color.accesorio','user'])->latest()
         ->get();
         
-        return view('https://michimaker-production.up.railway.app/gatos',compact('gatos'));
+        return view('gato.index',compact('gatos'));
     }
 
     /**
@@ -103,7 +103,7 @@ $gato->save();
        
 
         
-                        return redirect()->route('https://michimaker-production.up.railway.app/gatos')
+                        return redirect('https://michimaker-production.up.railway.app/gatos')
                         ->with('success','michi creado'); 
 
 
@@ -194,7 +194,7 @@ $gato->save();
        
 
         
-                        return redirect()->route('https://michimaker-production.up.railway.app/gatos')
+                        return redirect('https://michimaker-production.up.railway.app/gatos')
                         ->with('sucess','michi editado'); 
 
 
