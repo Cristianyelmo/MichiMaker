@@ -20,6 +20,7 @@ nombreImagen3.addEventListener('change', function() {
 // Obtén el valor y la información personalizada
 
 var infoPersonalizada2 = opcionSeleccionada2.getAttribute("data-info-3");
+console.log( infoPersonalizada2);
   imgSombreros.src= `https://michimaker-production.up.railway.app/storage/img/${infoPersonalizada2}.png`
  });
 

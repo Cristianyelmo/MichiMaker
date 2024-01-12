@@ -103,10 +103,10 @@
             <select name="expresion_id" id="expresions_id" onchange="playSound()"  class="form-control p-4 border-black border-4 contenedor-7 outline-none">
             @foreach ($expresions as $item)
             @if($gato->expresion_id == $item->id)
-                    <option selected value="{{$item->id}}"  data-info-3="{{$item->nombre}}" {{ old('color_id')== $item->id ? 'selected': '' }}>{{$item->nombre}}</option>
+                    <option selected value="{{$item->id}}"  data-info-4="{{$item->nombre}}" {{ old('color_id')== $item->id ? 'selected': '' }}>{{$item->nombre}}</option>
                     @else
 
-                    <option value="{{$item->id}}"  data-info-3="{{$item->nombre}}" {{ old('color_id')== $item->id ? 'selected': '' }}>{{$item->nombre}}</option>
+                    <option value="{{$item->id}}"  data-info-4="{{$item->nombre}}" {{ old('color_id')== $item->id ? 'selected': '' }}>{{$item->nombre}}</option>
                     @endif
                     @endforeach
             </select>
