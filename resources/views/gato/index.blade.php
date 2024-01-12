@@ -112,11 +112,10 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 // Envía el formulario correspondiente si el usuario confirma
-                document.getElementById('formId').submit();
+                document.getElementsByClassName('deleteForm')[formId - 1].submit();
             }
         });
     }
-    
     @if(session('success'))
 
     let message  = "{{session('success')}}";
@@ -147,3 +146,11 @@ var audio = document.getElementById("myAudio-no-sucess");
 </script>
 @endpush
   
+
+
+
+
+
+
+
+
