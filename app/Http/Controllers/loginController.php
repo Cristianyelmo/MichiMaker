@@ -21,7 +21,7 @@ class loginController extends Controller
                 return redirect()->route('colors.index');
             } elseif ($rolId == 2) {
                
-                return redirect('https://michimaker-production.up.railway.app/gatos');
+                return redirect()->route('gatos.index');
             }
          
         }
@@ -51,7 +51,7 @@ class loginController extends Controller
     return redirect()->route('colors.index');
   }  else {
 
-    return redirect('https://michimaker-production.up.railway.app/gatos')->with('success','Bienvenido '.$user->name);
+    return redirect()->route('gatos.index')->with('success','Bienvenido '.$user->name);
   }
   
   

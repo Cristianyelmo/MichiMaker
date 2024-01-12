@@ -8,8 +8,8 @@
 <p></p>
   
    
- <div class="">
-<a href="https://michimaker-production.up.railway.app/gatos/create">
+ <div class="{{route('gatos.create')}}">
+<a href="">
 <div class="flex justify-center mt-[30px]">
     <div class="flex">
 <div class="relative">
@@ -45,10 +45,10 @@
 
 <div class="border-black border-4 w-[30px] h-[30px] bg-[#008000] text-white flex justify-center">
 
-  <a href="{{ secure('/gatos/edit', ['gato' => $gato->id]) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+  <a href="{{ route('gatos.edit', ['gato' => $gato->id]) }}"><i class="fa-solid fa-pen-to-square"></i></a>
 </div>
 <div class="border-black border-4 w-[30px] h-[30px] bg-[#f52626] text-white flex justify-center">
-<form action="{{ secure('/gatos/delete', ['gato' => $gato->id]) }}" method="post" id="deleteForm">
+<form action="{{ route('gatos.destroy', ['gato' => $gato->id]) }}" method="post" id="deleteForm">
                         @method('DELETE')
                         @csrf
                     <button type='button' onclick="confirmDelete()" class="btn btn-primary"><i class="fa-solid fa-trash"></i></button>

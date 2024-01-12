@@ -53,12 +53,7 @@ Route::middleware('checkRole:2')->group(function () {
        
     ]);
   
-    Route::get('/gatos', [GatoController::class, 'index']);
-    Route::get('/gatos/edit', [GatoController::class, 'edit']);
-    Route::post('/gatos/edit', [GatoController::class, 'update']);
-    Route::post('/gatos/create', [GatoController::class, 'store']);
-    Route::get('/gatos/create', [GatoController::class, 'create']);
-    Route::delete('/gatos/delete', [GatoController::class, 'destroy']);
+  
 
 });
 
