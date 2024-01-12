@@ -8,8 +8,8 @@
 <p></p>
   
    
- <div class="{{route('gatos.create')}}">
-<a href="">
+ <div class="">
+<a href="{{route('gatos.create')}}">
 <div class="flex justify-center mt-[30px]">
     <div class="flex">
 <div class="relative">

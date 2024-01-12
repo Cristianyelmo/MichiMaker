@@ -210,7 +210,7 @@ $gato->save();
     public function destroy(string $id)
     {
         //
-dd('holaa');
+
 
         $gato = Gato::find($id);
 
@@ -220,7 +220,7 @@ dd('holaa');
             $gato->delete();
     
             // Redirigir con un mensaje de éxito
-            return redirect('https://michimaker-production.up.railway.app/gatos')->with('no-success', 'michi borrado');
+            return redirect()->route('gatos.index')->with('no-success', 'michi borrado');
         }
     }
 }
