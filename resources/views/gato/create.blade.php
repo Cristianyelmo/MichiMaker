@@ -147,12 +147,7 @@
 
 </script>
 
-<script>
-     function playSound() {
-      var audio = document.getElementById("myAudio");
-      audio.play();
-    }
-</script>
+<script src="/js/playsound.js"></script>
 @endpush
 
 

@@ -194,8 +194,8 @@ $gato->save();
        
 
         
-                        return redirect('https://michimaker-production.up.railway.app/gatos')
-                        ->with('sucess','michi editado'); 
+                        return redirect()->route('gatos.index')
+                        ->with('success','michi editado'); 
 
 
         

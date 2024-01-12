@@ -79,7 +79,7 @@
 <div class="flex flex-col items-center">
 <p>Color</p>
 <div class="relative m-3">
-            <select name="color_id" id="presentacione_id"  class="form-control p-4 border-black border-4 contenedor-7 outline-none" required>
+            <select name="color_id" id="presentacione_id" onchange="playSound()" class="form-control p-4 border-black border-4 contenedor-7 outline-none" required>
                 @foreach ($colors as $item)
 
 
@@ -98,10 +98,23 @@
 <small class='text-danger'>{{'*'.$message}}</small>
 
 @enderror
+<p>Expresion</p>
+<div class="relative m-3">
+            <select name="expresion_id" id="expresions_id" onchange="playSound()"  class="form-control p-4 border-black border-4 contenedor-7 outline-none">
+            @foreach ($expresions as $item)
+            @if($gato->expresion_id == $item->id)
+                    <option selected value="{{$item->id}}"  data-info-3="{{$item->nombre}}" {{ old('color_id')== $item->id ? 'selected': '' }}>{{$item->nombre}}</option>
+                    @else
 
+                    <option value="{{$item->id}}"  data-info-3="{{$item->nombre}}" {{ old('color_id')== $item->id ? 'selected': '' }}>{{$item->nombre}}</option>
+                    @endif
+                    @endforeach
+            </select>
+            <div class="bg-black  w-[210px] h-[55px] cuadrado-negro-7"></div>
+            </div>
 <p>Gafas</p>
 <div class="relative m-3">
-            <select name="gafas_id" id="gafas_id"  class="form-control p-4 border-black border-4 contenedor-7 outline-none">
+            <select name="gafas_id" id="gafas_id" onchange="playSound()"  class="form-control p-4 border-black border-4 contenedor-7 outline-none">
             @foreach ($gafas as $item)
             @if($gato->gafa_id == $item->id)
                     <option selected value="{{$item->id}}"  data-info-2="{{$item->nombre}}" {{ old('color_id')== $item->id ? 'selected': '' }}>{{$item->nombre}}</option>
@@ -118,20 +131,7 @@
             
 <!--  -->
 
-<p>Expresion</p>
-<div class="relative m-3">
-            <select name="expresion_id" id="expresions_id"  class="form-control p-4 border-black border-4 contenedor-7 outline-none">
-            @foreach ($expresions as $item)
-            @if($gato->expresion_id == $item->id)
-                    <option selected value="{{$item->id}}"  data-info-3="{{$item->nombre}}" {{ old('color_id')== $item->id ? 'selected': '' }}>{{$item->nombre}}</option>
-                    @else
 
-                    <option value="{{$item->id}}"  data-info-3="{{$item->nombre}}" {{ old('color_id')== $item->id ? 'selected': '' }}>{{$item->nombre}}</option>
-                    @endif
-                    @endforeach
-            </select>
-            <div class="bg-black  w-[210px] h-[55px] cuadrado-negro-7"></div>
-            </div>
 
 
 
@@ -150,7 +150,7 @@
             <p>Sombrero</p>
 
             <div class="relative m-3">
-            <select name="sombrero_id" id="sombreros_id"  class="form-control p-4 border-black border-4 contenedor-7 outline-none">
+            <select name="sombrero_id" id="sombreros_id" onchange="playSound()" class="form-control p-4 border-black border-4 contenedor-7 outline-none">
             @foreach ($sombreros as $item)
             @if($gato->sombrero_id == $item->id)
                     <option selected value="{{$item->id}}"  data-info-3="{{$item->nombre}}" {{ old('color_id')== $item->id ? 'selected': '' }}>{{$item->nombre}}</option>
@@ -164,7 +164,7 @@
             </div>
             <p>Camiseta</p>
             <div class="relative m-3">
-            <select name="camiseta_id" id="camisetas_id"  class="form-control p-4 border-black border-4 contenedor-7 outline-none">
+            <select name="camiseta_id" id="camisetas_id" onchange="playSound()" class="form-control p-4 border-black border-4 contenedor-7 outline-none">
             @foreach ($camisetas as $item)
             @if($gato->camiseta_id == $item->id)
                     <option selected value="{{$item->id}}"  data-info-5="{{$item->nombre}}" {{ old('color_id')== $item->id ? 'selected': '' }}>{{$item->nombre}}</option>
@@ -188,6 +188,10 @@
        
     </div>
     @endsection
+    <audio id="myAudio">
+    <source src="/sound/option.mp3" type="audio/mp3">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
 </div>
 </div>
 
@@ -197,6 +201,6 @@
 /* gjjf*/
 
 </script>
-
-
+<script src="/js/playsound.js" >
+</script>
 @endpush
