@@ -1,3 +1,6 @@
+
+<h1 class="text-center mt-[20px] text-3xl">Descubre todos los michis creados</h1>
+
 <div class="mx-auto flex flex-col items-center bg-blue w-70 h-full p-4 md:flex-row md:justify-center md:flex-wrap md:items-center">
 @foreach($gatos as $gato) 
 <div class="flex flex-col">
