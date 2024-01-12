@@ -51,7 +51,7 @@
 <form action="{{ route('gatos.destroy', ['gato' => $gato->id]) }}" method="post" id="deleteForm">
                         @method('DELETE')
                         @csrf
-                    <button type='button' onclick="confirmDelete()" class="btn btn-primary"><i class="fa-solid fa-trash"></i></button>
+                        <button type='button' onclick="confirmDelete({{ $gato->id }})" class="btn btn-primary"><i class="fa-solid fa-trash"></i></button>
                     </form>
 </div>
 </div>
@@ -100,20 +100,19 @@
 
 <script>
       
-    function confirmDelete() {
+      function confirmDelete(formId) {
         Swal.fire({
-            title: `¿Seguro que quieres eliminar el michi ?`,
-        
+            title: `¿Seguro que quieres eliminar el michi?`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, eliminalo :(',
+            confirmButtonText: 'Sí, elimínalo :(',
             cancelButtonText: 'noou'
         }).then((result) => {
             if (result.isConfirmed) {
-                // Envía el formulario si el usuario confirma
-                document.getElementById('deleteForm').submit();
+                // Envía el formulario correspondiente si el usuario confirma
+                document.getElementById('formId').submit();
             }
         });
     }
