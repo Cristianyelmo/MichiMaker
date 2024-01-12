@@ -72,8 +72,8 @@ class GatoController extends Controller
                 'image'=>'alfredoxd.jpg',
                 'color_id'=> $request->color_id,
                 'gafa_id'=> $request->gafas_id ? $request->gafas_id :8,
-                'sombrero_id'=> $request->sombrero_id ? $request->sombrero_id :8,
-                'camiseta_id'=> $request->camiseta_id ? $request->camiseta_id :8,
+                'sombrero_id'=> $request->sombrero_id ? $request->sombrero_id :7,
+                'camiseta_id'=> $request->camiseta_id ? $request->camiseta_id :10,
                 'expresion_id'=>$request->expresion_id,
                 'user_id'=>$userId,
 
@@ -163,8 +163,8 @@ $gato->save();
                 'image'=>'alfredoxd.jpg',
                 'color_id'=> $request->color_id,
                 'gafa_id'=> $request->gafas_id ? $request->gafas_id :8,
-                'sombrero_id'=> $request->sombrero_id ? $request->sombrero_id :8,
-                'camiseta_id'=> $request->camiseta_id ? $request->camiseta_id :8,
+                'sombrero_id'=> $request->sombrero_id ? $request->sombrero_id :7,
+                'camiseta_id'=> $request->camiseta_id ? $request->camiseta_id :10,
                 'expresion_id'=>$request->expresion_id,
                 'user_id'=>$userId,
 
