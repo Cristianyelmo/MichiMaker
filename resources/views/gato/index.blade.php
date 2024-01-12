@@ -48,7 +48,7 @@
   <a href="{{ route('gatos.edit', ['gato' => $gato->id]) }}"><i class="fa-solid fa-pen-to-square"></i></a>
 </div>
 <div class="border-black border-4 w-[30px] h-[30px] bg-[#f52626] text-white flex justify-center">
-<form action="{{ route('gatos.destroy', ['gato' => $gato->id]) }}" method="post" id="deleteForm">
+<form action="{{ route('gatos.destroy', ['gato' => $gato->id]) }}" method="post" class="deleteForm" id="form-{{ $gato->id }}">
                         @method('DELETE')
                         @csrf
                         <button type='button' onclick="confirmDelete({{ $gato->id }})" class="btn btn-primary"><i class="fa-solid fa-trash"></i></button>
@@ -112,7 +112,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 // Envía el formulario correspondiente si el usuario confirma
-                document.getElementsByClassName('deleteForm')[formId - 1].submit();
+                document.getElementById('form-' + formId).submit();
             }
         });
     }
