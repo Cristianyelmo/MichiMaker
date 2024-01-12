@@ -58,7 +58,8 @@ Route::middleware('checkRole:2')->group(function () {
     Route::post('/gatos/edit', [GatoController::class, 'update']);
     Route::post('/gatos/create', [GatoController::class, 'store']);
     Route::get('/gatos/create', [GatoController::class, 'create']);
-    Route::delete('https://michimaker-production.up.railway.app/gatos/delete', [GatoController::class, 'destroy']);
+    Route::delete('/gatos/{gato}', [GatoController::class, 'destroy'])->name('gatos.destroy');
+
 });
 
 Route::get('/login', [loginController::class,'index'])->name('login');
