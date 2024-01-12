@@ -41,7 +41,7 @@
 <p class="text-center mt-[20px]">{{$gato->nombre}}</p>
 <div class="flex justify-center space-x-3 mt-[20px]">
 
-<!-- <a href="{{route('gatos.create',['gato'=>$gatos])}}" class="border-black border-4 w-[30px] h-[30px]">E</a> -->
+
 
 <div class="border-black border-4 w-[30px] h-[30px] bg-[#008000] text-white flex justify-center">
 
