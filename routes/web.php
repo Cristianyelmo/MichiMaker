@@ -52,8 +52,9 @@ Route::middleware('checkRole:2')->group(function () {
         'gatos'=> GatoController::class,
        
     ]);
+    Route::post('/gatos', [GatoController::class, 'store'])->name('gatos.store');
 });
-Route::post('/gatos', [GatoController::class, 'store'])->name('gatos.store');
+
 Route::get('/login', [loginController::class,'index'])->name('login');
 Route::post('/login', [loginController::class,'login']);
 
