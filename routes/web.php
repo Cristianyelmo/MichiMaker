@@ -47,6 +47,11 @@ Route::middleware('checkRole:1')->group(function () {
 
 
 Route::middleware('checkRole:2')->group(function () {
+    Route::resources([
+        
+        'gatos'=> GatoController::class,
+       
+    ]);
   
     Route::get('/gatos', [GatoController::class, 'index']);
     Route::get('/gatos/edit', [GatoController::class, 'edit']);
