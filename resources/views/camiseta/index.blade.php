@@ -17,7 +17,7 @@
 
       <div class="flex flex-col items-center bg-blue w-70 h-full p-4 md:flex-row md:justify-center md:flex-wrap md:items-center">
     @foreach($camisetas as $camiseta)
-     @if($camiseta->accesorio->id !== 33)
+     @if($camiseta->id !== 10)
       <div class="relative m-[30px] ">
 <div class="border-black border-4 w-[200px] h-[200px] contenedor">
  
