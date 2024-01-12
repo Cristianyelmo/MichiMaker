@@ -210,7 +210,7 @@ $gato->save();
     public function destroy(string $id)
     {
         //
-
+dd('holaa');
 
         $gato = Gato::find($id);
 

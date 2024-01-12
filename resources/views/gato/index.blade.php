@@ -45,10 +45,10 @@
 
 <div class="border-black border-4 w-[30px] h-[30px] bg-[#008000] text-white flex justify-center">
 
-  <a href="{{ url('https://michimaker-production.up.railway.app/gatos/edit', ['gato' => $gato->id]) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+  <a href="{{ ('https://michimaker-production.up.railway.app/gatos/edit', ['gato' => $gato->id]) }}"><i class="fa-solid fa-pen-to-square"></i></a>
 </div>
 <div class="border-black border-4 w-[30px] h-[30px] bg-[#f52626] text-white flex justify-center">
-<form action="{{ url('/gatos/delete', ['gato' => $gato->id]) }}" method="post" id="deleteForm">
+<form action="{{ secure('/gatos/delete', ['gato' => $gato->id]) }}" method="post" id="deleteForm">
                         @method('DELETE')
                         @csrf
                     <button type='button' onclick="confirmDelete()" class="btn btn-primary"><i class="fa-solid fa-trash"></i></button>
